@@ -121,14 +121,35 @@ export default function Home() {
         <section id="reservations" className="py-20 px-4 md:px-6 bg-foreground text-background">
           <motion.div ref={reservation.ref} initial="hidden" animate={reservation.inView ? "show" : "hidden"} variants={SECTION_FADE} className="mx-auto max-w-4xl grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="font-serif text-3xl md:text-5xl font-bold">Reserva una mesa</h2>
-              <p className="mt-6 text-background/70 leading-relaxed">Disfruta de la experiencia completa en nuestro local. Pho humeante y el mejor servicio.</p>
-              <div className="mt-8 flex flex-col gap-4">
-                <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30"><Phone className="h-5 w-5 text-primary" /></div>
+              <h2 className="font-serif text-3xl md:text-5xl font-bold">Contáctenos</h2>
+              <p className="mt-6 text-background/70 leading-relaxed font-bold italic">¡Mejor aún, visítenos en persona!</p>
+              <p className="mt-2 text-background/60 leading-relaxed text-sm">Amamos a nuestros clientes, así que no dudes en visitarnos durante el horario comercial normal.</p>
+              
+              <div className="mt-8 space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="h-10 w-10 rounded-xl bg-primary/20 flex items-center justify-center border border-primary/30 shrink-0"><ExternalLink className="h-5 w-5 text-primary" /></div>
                   <div>
-                    <div className="text-xs uppercase font-bold tracking-widest text-background/50">Llámanos</div>
-                    <a href="tel:+15551234567" className="text-xl font-bold hover:text-primary transition-colors">(555) 123-4567</a>
+                    <div className="text-xs uppercase font-bold tracking-widest text-background/50 mb-1">Dirección</div>
+                    <a href="https://maps.google.com/?q=1441+Wesel+Blvd,+Hagerstown,+MD+21740" target="_blank" rel="noreferrer" className="text-base font-medium hover:text-primary transition-colors">
+                      1441 Wesel Blvd, Hagerstown, MD 21740, EE. UU.
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <div className="h-10 w-10 rounded-xl bg-primary/20 flex items-center justify-center border border-primary/30 shrink-0"><Phone className="h-5 w-5 text-primary" /></div>
+                  <div>
+                    <div className="text-xs uppercase font-bold tracking-widest text-background/50 mb-1">Llámanos</div>
+                    <a href="tel:+13017455030" className="text-xl font-bold hover:text-primary transition-colors">(301) 745-5030</a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="h-10 w-10 rounded-xl bg-primary/20 flex items-center justify-center border border-primary/30 shrink-0"><CalendarDays className="h-5 w-5 text-primary" /></div>
+                  <div>
+                    <div className="text-xs uppercase font-bold tracking-widest text-background/50 mb-1">Horas</div>
+                    <p className="text-base font-medium">De 11 a 20 horas de domingo a lunes.</p>
+                    <p className="text-sm text-secondary font-bold mt-1">Cerrado los martes.</p>
                   </div>
                 </div>
               </div>
