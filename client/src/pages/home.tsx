@@ -81,7 +81,7 @@ export default function Home() {
           <Link href="/" className="flex items-center gap-2">
             <img src="/logo-pho.jpg" alt="Pho Viet Restaurant Logo" className="h-10 w-10 object-contain rounded-lg border bg-white shadow-sm" />
             <div className="leading-tight">
-              <div className="font-serif text-sm font-bold tracking-tight uppercase">Pho Viet Restaurant</div>
+              <div className="font-serif text-sm font-bold tracking-tight">Pho Viet Restaurant</div>
             </div>
           </Link>
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
