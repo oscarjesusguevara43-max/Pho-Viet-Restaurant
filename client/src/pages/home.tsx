@@ -35,143 +35,126 @@ const SECTION_FADE = {
 };
 
 type MenuCategory =
+  | "Aperitivos"
+  | "Sopa"
   | "Pho"
-  | "Vermicelli"
-  | "Rice Platters"
-  | "Appetizers"
-  | "Drinks";
+  | "Fideos de Arroz"
+  | "Fideos de Huevo"
+  | "Arroz"
+  | "Bún (Ensalada)"
+  | "Arroz Frito"
+  | "Vegetariano"
+  | "Bebidas";
 
 type MenuItem = {
   id: string;
   category: MenuCategory;
   name: string;
   description: string;
-  price: number;
+  price: string | number;
   image?: string;
   chefPick?: boolean;
 };
 
-type Review = {
-  id: string;
-  name: string;
-  text: string;
-  rating: 4 | 5;
-};
-
 const MENU: MenuItem[] = [
-  {
-    id: "pho-dac-biet",
-    category: "Pho",
-    name: "Pho Dac Biet",
-    description: "Caldo de res de cocción lenta, brisket, albóndigas y hierbas frescas.",
-    price: 15.95,
-    image: heroPho,
-    chefPick: true,
-  },
-  {
-    id: "pho-ga",
-    category: "Pho",
-    name: "Pho Ga",
-    description: "Pollo jugoso, jengibre y limón; terminado con cebollín y cilantro.",
-    price: 14.5,
-  },
-  {
-    id: "bun-thit-nuong",
-    category: "Vermicelli",
-    name: "Bún Thịt Nướng",
-    description: "Vermicelli con cerdo a la parrilla, hierbas, vegetales encurtidos y nuoc cham.",
-    price: 16.25,
-    image: menuBun,
-    chefPick: true,
-  },
-  {
-    id: "com-tam",
-    category: "Rice Platters",
-    name: "Cơm Tấm",
-    description: "Arroz partido con cerdo a la parrilla, huevo y pickles — equilibrio perfecto.",
-    price: 17.75,
-    image: menuRice,
-  },
-  {
-    id: "goi-cuon",
-    category: "Appetizers",
-    name: "Gỏi Cuốn",
-    description: "Spring rolls frescos con camarón y salsa de maní (2 piezas).",
-    price: 8.75,
-    image: menuSpringrolls,
-  },
-  {
-    id: "cha-gio",
-    category: "Appetizers",
-    name: "Chả Giò",
-    description: "Rollitos crujientes de cerdo y verduras con hojas frescas.",
-    price: 9.25,
-  },
-  {
-    id: "ca-phe-sua-da",
-    category: "Drinks",
-    name: "Cà Phê Sữa Đá",
-    description: "Café vietnamita con leche condensada — intenso y sedoso.",
-    price: 5.75,
-  },
-  {
-    id: "tra-dao",
-    category: "Drinks",
-    name: "Trà Đào",
-    description: "Té helado de durazno, cítrico y refrescante.",
-    price: 4.95,
-  },
+  // Khai Vị - Aperitivos
+  { id: "a1", category: "Aperitivos", name: "A1 Chả Giò (2)", description: "Rollitos de huevo de cerdo crujientes vietnamitas", price: 6.95 },
+  { id: "a2", category: "Aperitivos", name: "A2 Chả Giò Tôm (4)", description: "Rollitos de huevo con camarones crujientes", price: 7.95 },
+  { id: "a3", category: "Aperitivos", name: "A3 Gỏi cuốn (2)", description: "Rollitos de primavera de camarones frescos y cerdo", price: 6.95, image: menuSpringrolls },
+  { id: "a4", category: "Aperitivos", name: "A4 Tôm tàu hủ Ky", description: "Camarones envueltos en tofu", price: 7.95 },
+  { id: "a5", category: "Aperitivos", name: "A5 Cánh Gà Chiên (6)", description: "Alitas de pollo fritas", price: 8.95 },
+  { id: "a6", category: "Aperitivos", name: "A6 Nem nướng (2 brochetas)", description: "Albóndigas de cerdo a la parrilla", price: 7.95 },
+  { id: "a7", category: "Aperitivos", name: "A7 Pot Stickers (6)", description: "Pollo o Cerdo. A) Al vapor B) Frito", price: 6.95 },
+
+  // Súp - Sopa
+  { id: "s1", category: "Sopa", name: "S1 Súp Hoành thánh", description: "Sopa wonton", price: 5.95 },
+  { id: "s2", category: "Sopa", name: "S2 Súp bò viên", description: "Sopa de albóndigas de carne de res", price: 5.95 },
+  { id: "s3", category: "Sopa", name: "S3 Súp Gà", description: "Sopa de pollo desmenuzado", price: 5.95 },
+
+  // Phở - Pho
+  { id: "p1", category: "Pho", name: "P1 Phở Đặc Biệt", description: "Pho especial con carne de res poco hecha, filete de falda bien hecho, tendón, callos y albóndigas de res", price: "L $14.95 / XL $15.95", image: heroPho, chefPick: true },
+  { id: "p2", category: "Pho", name: "P2 Phở Tái", description: "Pho de carne poco hecha", price: "L $13.95 / XL $14.95" },
+  { id: "p3", category: "Pho", name: "P3 Phở tái bò viên", description: "Pho de carne de res poco hecha y albóndigas de res", price: "L $13.95 / XL $14.95" },
+  { id: "p4", category: "Pho", name: "P4 Phở Tái Nạm", description: "Pho de carne de res y pecho poco hecho", price: "L $13.95 / XL $14.95" },
+  { id: "p5", category: "Pho", name: "P5 Phở Bò Viên", description: "Pho de albóndigas de ternera", price: "L $13.95 / XL $14.95" },
+  { id: "p6", category: "Pho", name: "P6 Phở Gà", description: "Pho de pollo", price: "L $13.95 / XL $14.95" },
+  { id: "p7", category: "Pho", name: "P7 Phở Đồ biển", description: "Pho de mariscos", price: "L $13.95 / XL $14.95" },
+  { id: "p8", category: "Pho", name: "P8 Phở nạm", description: "Pho de pechuga", price: "L $13.95 / XL $14.95" },
+  { id: "p9", category: "Pho", name: "P9 Phở đặc biệt thái lan", description: "Pho especial al estilo tailandés", price: "L $14.95 / XL $15.95" },
+  { id: "p10", category: "Pho", name: "P10 PhỞ TÔM", description: "Pho de camarones", price: "L $13.95 / XL $14.95" },
+
+  // Hủ Tiếu - Fideos de Arroz
+  { id: "h1", category: "Fideos de Arroz", name: "H1 Hủ tiếu thập cẩm", description: "Sopa combinada de fideos de arroz", price: 14.95 },
+  { id: "h2", category: "Fideos de Arroz", name: "H2 Hủ tiếu đồ biển", description: "Sopa de fideos de arroz con mariscos", price: 13.95 },
+  { id: "h3", category: "Fideos de Arroz", name: "H3 Hủ tiếu tôm", description: "Sopa de fideos de arroz con camarones", price: 12.95 },
+
+  // Mì - Fideos de Huevo
+  { id: "m1", category: "Fideos de Huevo", name: "M1 Mì thập cẩm", description: "Sopa combinada de fideos con huevo", price: 14.95 },
+  { id: "m2", category: "Fideos de Huevo", name: "M2 Mì đồ biển", description: "Sopa de fideos de huevo con mariscos", price: 13.95 },
+  { id: "m8", category: "Fideos de Huevo", name: "M8 Mì xào giòn thập cẩm", description: "Fideos de huevo combinados salteados (sin sopa)", price: 15.95, chefPick: true },
+
+  // Cơm - Platos de arroz
+  { id: "c1", category: "Arroz", name: "C1 Cơm Sườn", description: "Chuletas de cerdo a la parrilla", price: 13.95 },
+  { id: "c3", category: "Arroz", name: "C3 Cơm sườn, chả, ốp la", description: "Chuletas de cerdo a la parrilla, pastel de carne de cerdo y huevo frito", price: 15.95, image: menuRice, chefPick: true },
+  { id: "c12", category: "Arroz", name: "C12 Cơm bò lúc lắc", description: "Carne de res salteada y temblorosa", price: 15.95 },
+
+  // Bún - Fideos en ensalada
+  { id: "b1", category: "Bún (Ensalada)", name: "B1 Bún thịt nướng", description: "Cerdo a la parrilla", price: 13.95, image: menuBun },
+  { id: "b2", category: "Bún (Ensalada)", name: "B2 Bún thịt nướng, chả giò", description: "Cerdo a la parrilla y rollo de huevo crujiente", price: 14.95 },
+
+  // Cơm Chiên - Arroz frito
+  { id: "cc1", category: "Arroz Frito", name: "CC1 Arroz frito dương châu", description: "Arroz frito combinado", price: 14.95 },
+  { id: "cc12", category: "Arroz Frito", name: "CC12 Cơm gà Asador Chiên", description: "Pollo asado con arroz frito", price: 15.95 },
+
+  // Chay - Vegetarian
+  { id: "v1", category: "Vegetariano", name: "V1 Gỏi cuốn chay", description: "Rollitos de primavera frescos vegetarianos", price: 6.95 },
+  { id: "v4", category: "Vegetariano", name: "V4 Phở chay", description: "Pho vegetariano (caldo de res o caldo de verduras)", price: "L $14.95 / XL 15.95" },
+
+  // Thức uống - Bebidas
+  { id: "n2", category: "Bebidas", name: "N2 Cafe sữa đá", description: "Café helado con leche condensada", price: 4.95 },
+  { id: "n11", category: "Bebidas", name: "N11 Té tailandés", description: "Thai Tea refrescante", price: 4.95 },
 ];
 
-const REVIEWS: Review[] = [
-  {
-    id: "r1",
-    name: "María L.",
-    text: "El caldo del pho tiene profundidad real. Se siente casero y premium a la vez.",
-    rating: 5,
-  },
-  {
-    id: "r2",
-    name: "Daniel R.",
-    text: "Servicio cálido, porciones perfectas y sabores súper frescos. Vuelvo seguro.",
-    rating: 5,
-  },
-  {
-    id: "r3",
-    name: "Sofía G.",
-    text: "Los spring rolls y el café vietnamita son obligatorios. Todo impecable.",
-    rating: 4,
-  },
+const CATEGORIES: MenuCategory[] = [
+  "Aperitivos",
+  "Sopa",
+  "Pho",
+  "Fideos de Arroz",
+  "Fideos de Huevo",
+  "Arroz",
+  "Bún (Ensalada)",
+  "Arroz Frito",
+  "Vegetariano",
+  "Bebidas",
+];
+
+const REVIEWS = [
+  { id: "r1", name: "María L.", text: "El caldo del pho tiene profundidad real. Se siente casero y premium a la vez.", rating: 5 },
+  { id: "r2", name: "Daniel R.", text: "Servicio cálido, porciones perfectas y sabores súper frescos. Vuelvo seguro.", rating: 5 },
+  { id: "r3", name: "Sofía G.", text: "Los spring rolls y el café vietnamita son obligatorios. Todo impecable.", rating: 4 },
 ];
 
 function cn(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ");
 }
 
-function money(value: number) {
-  return value.toLocaleString("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
+function formatPrice(price: string | number) {
+  if (typeof price === "string") return price;
+  return price.toLocaleString("en-US", { style: "currency", currency: "USD" });
 }
 
 function Stars({ rating, idPrefix }: { rating: number; idPrefix: string }) {
   return (
     <div className="flex items-center gap-1" data-testid={`stars-${idPrefix}`}>
-      {Array.from({ length: 5 }).map((_, i) => {
-        const on = i < rating;
-        return (
-          <Star
-            key={i}
-            className={cn(
-              "h-4 w-4",
-              on
-                ? "fill-secondary text-secondary"
-                : "fill-transparent text-muted-foreground/35",
-            )}
-          />
-        );
-      })}
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star
+          key={i}
+          className={cn(
+            "h-4 w-4",
+            i < rating ? "fill-secondary text-secondary" : "fill-transparent text-muted-foreground/35"
+          )}
+        />
+      ))}
     </div>
   );
 }
@@ -183,27 +166,12 @@ function useSectionInView() {
 }
 
 export default function Home() {
-  const [activeCat, setActiveCat] = useState<MenuCategory>("Pho");
+  const [activeCat, setActiveCat] = useState<MenuCategory>("Aperitivos");
   const [lightbox, setLightbox] = useState<string | null>(null);
 
-  const filteredMenu = useMemo(() => {
-    return MENU.filter((m) => m.category === activeCat);
-  }, [activeCat]);
-
-  const chefPicks = useMemo(() => {
-    return MENU.filter((m) => m.chefPick);
-  }, []);
-
-  const gallery = useMemo(() => {
-    return [
-      heroPho,
-      menuSpringrolls,
-      galleryInterior,
-      chefTeam,
-      menuBun,
-      menuRice,
-    ];
-  }, []);
+  const filteredMenu = useMemo(() => MENU.filter((m) => m.category === activeCat), [activeCat]);
+  const chefPicks = useMemo(() => MENU.filter((m) => m.chefPick), []);
+  const gallery = [heroPho, menuSpringrolls, galleryInterior, chefTeam, menuBun, menuRice];
 
   const hero = useSectionInView();
   const story = useSectionInView();
@@ -214,923 +182,163 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      <a
-        href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-background focus:px-3 focus:py-2 focus:text-sm focus:shadow"
-        data-testid="link-skip"
-      >
-        Saltar al contenido
-      </a>
-
-      <header
-        className="sticky top-0 z-40 border-b bg-background/72 backdrop-blur supports-[backdrop-filter]:bg-background/56"
-        data-testid="header-nav"
-      >
+      <header className="sticky top-0 z-40 border-b bg-background/72 backdrop-blur shadow-sm" data-testid="header-nav">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
-          <a
-            href="#top"
-            className="group flex items-center gap-2"
-            data-testid="link-home"
-          >
-            <div
-              className="grid h-9 w-9 place-items-center rounded-xl border bg-card shadow-sm"
-              data-testid="logo-mark"
-            >
-              <span
-                className="font-serif text-base font-semibold tracking-tight"
-                data-testid="text-logo"
-              >
-                PV
-              </span>
-            </div>
+          <a href="#" className="flex items-center gap-2" data-testid="link-home">
+            <div className="grid h-9 w-9 place-items-center rounded-xl border bg-card shadow-sm font-serif font-bold">PV</div>
             <div className="leading-tight">
-              <div
-                className="font-serif text-sm font-semibold tracking-tight"
-                data-testid="text-brand"
-              >
-                Pho Viet
-              </div>
-              <div
-                className="text-xs text-muted-foreground"
-                data-testid="text-brand-sub"
-              >
-                Authentic Vietnamese Cuisine
-              </div>
+              <div className="font-serif text-sm font-bold tracking-tight">Pho Viet</div>
+              <div className="text-[10px] text-muted-foreground uppercase tracking-widest">Authentic</div>
             </div>
           </a>
-
-          <nav className="hidden items-center gap-7 md:flex" data-testid="nav-main">
-            <a
-              href="#menu"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-              data-testid="link-menu"
-            >
-              Menú
-            </a>
-            <a
-              href="#gallery"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-              data-testid="link-gallery"
-            >
-              Galería
-            </a>
-            <a
-              href="#reservations"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-              data-testid="link-reservations"
-            >
-              Reservas
-            </a>
-            <a
-              href="#reviews"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-              data-testid="link-reviews"
-            >
-              Reseñas
-            </a>
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium" data-testid="nav-main">
+            <a href="#menu" className="hover:text-primary transition-colors">Menú</a>
+            <a href="#gallery" className="hover:text-primary transition-colors">Galería</a>
+            <a href="#reservations" className="hover:text-primary transition-colors">Reservas</a>
           </nav>
-
-          <div className="flex items-center gap-2">
-            <Button
-              variant="secondary"
-              size="sm"
-              className="hidden md:inline-flex"
-              asChild
-            >
-              <a
-                href="#reservations"
-                data-testid="button-reservar-header"
-                aria-label="Reservar mesa"
-              >
-                Reservar
-              </a>
-            </Button>
-            <Button size="sm" asChild>
-              <a href="#menu" data-testid="button-vermenu-header">
-                Ver Menú
-              </a>
-            </Button>
+          <div className="flex items-center gap-3">
+            <Button variant="outline" size="sm" asChild className="hidden sm:inline-flex"><a href="tel:+15551234567">Llamar</a></Button>
+            <Button size="sm" asChild><a href="#reservations">Reservar</a></Button>
           </div>
         </div>
       </header>
 
-      <main id="main" data-testid="main-content">
-        <section
-          id="top"
-          className="relative overflow-hidden"
-          aria-label="Hero"
-          data-testid="section-hero"
-        >
-          <div className="pv-hero-grid">
-            <div className="absolute inset-0" aria-hidden="true">
-              <div className="absolute inset-0 pv-noise opacity-70" />
-            </div>
-
-            <div className="relative mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 py-14 md:grid-cols-2 md:px-6 md:py-18">
-              <motion.div
-                ref={hero.ref}
-                initial="hidden"
-                animate={hero.inView ? "show" : "hidden"}
-                variants={SECTION_FADE}
-                transition={{ duration: 0.55, ease: "easeOut" }}
-                className="flex flex-col justify-center"
-              >
-                <div
-                  className="inline-flex w-fit items-center gap-2 rounded-full border bg-background/70 px-3 py-1 text-xs text-muted-foreground shadow-sm backdrop-blur"
-                  data-testid="badge-hero"
-                >
-                  <span
-                    className="h-1.5 w-1.5 rounded-full bg-accent"
-                    aria-hidden="true"
-                  />
-                  Cocina vietnamita auténtica
-                </div>
-
-                <h1
-                  className="mt-5 font-serif text-4xl font-semibold tracking-tight md:text-5xl"
-                  data-testid="text-hero-title"
-                >
-                  Pho Viet – Authentic Vietnamese Cuisine
-                </h1>
-                <p
-                  className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg pv-text-balance"
-                  data-testid="text-hero-subtitle"
-                >
-                  Sabores que conquistan desde el primer sorbo.
-                </p>
-
-                <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <Button
-                    asChild
-                    className="shadow-md"
-                    data-testid="button-vermenu-hero"
-                  >
-                    <a href="#menu">Ver Menú</a>
-                  </Button>
-                  <Button
-                    asChild
-                    variant="secondary"
-                    className="shadow-md"
-                    data-testid="button-reservar-hero"
-                  >
-                    <a href="#reservations">Reservar Mesa</a>
-                  </Button>
-                </div>
-
-                <div className="mt-9 flex flex-wrap items-center gap-6">
-                  <div data-testid="stat-rating">
-                    <div className="flex items-center gap-2">
-                      <Stars rating={5} idPrefix="hero" />
-                      <span className="text-sm text-muted-foreground">
-                        <span className="font-medium text-foreground">4.8</span> en
-                        Google
-                      </span>
-                    </div>
-                  </div>
-                  <div className="h-6 w-px bg-border" aria-hidden="true" />
-                  <div className="text-sm text-muted-foreground" data-testid="stat-hours">
-                    <span className="font-medium text-foreground">Abierto</span> ·
-                    Lun–Dom 11:00–22:00
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.05 }}
-                className="relative"
-              >
-                <div
-                  className="relative overflow-hidden rounded-3xl border bg-card shadow-lg"
-                  data-testid="img-hero-wrap"
-                >
-                  <img
-                    src={heroPho}
-                    alt="Bowl de pho con vapor"
-                    className="h-[460px] w-full object-cover md:h-[540px]"
-                    data-testid="img-hero"
-                  />
-                  <div
-                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/55 via-background/20 to-transparent"
-                    aria-hidden="true"
-                  />
-                </div>
-
-                <div
-                  className="absolute -bottom-6 -left-4 hidden w-[70%] rounded-2xl border bg-background/85 p-4 shadow-lg backdrop-blur md:block"
-                  data-testid="card-hero-float"
-                >
-                  <div className="flex items-start gap-3">
-                    <div className="mt-0.5 grid h-9 w-9 place-items-center rounded-xl bg-secondary/15 text-secondary">
-                      <CalendarDays className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <div
-                        className="text-sm font-medium"
-                        data-testid="text-hero-float-title"
-                      >
-                        Reservas rápidas
-                      </div>
-                      <div
-                        className="mt-0.5 text-xs text-muted-foreground"
-                        data-testid="text-hero-float-sub"
-                      >
-                        Confirmación en minutos. Sin complicaciones.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        <section
-          className="mx-auto max-w-6xl px-4 py-14 md:px-6"
-          aria-label="Historia"
-          data-testid="section-story"
-        >
-          <motion.div
-            ref={story.ref}
-            initial="hidden"
-            animate={story.inView ? "show" : "hidden"}
-            variants={SECTION_FADE}
-            transition={{ duration: 0.55, ease: "easeOut" }}
-            className="grid grid-cols-1 gap-10 md:grid-cols-2 md:items-center"
-          >
+      <main id="main">
+        <section id="top" className="pv-hero-grid py-12 md:py-20 px-4 md:px-6">
+          <motion.div ref={hero.ref} initial="hidden" animate={hero.inView ? "show" : "hidden"} variants={SECTION_FADE} className="mx-auto max-w-6xl grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2
-                className="font-serif text-3xl font-semibold tracking-tight"
-                data-testid="text-story-title"
-              >
-                Cada plato cuenta una historia de Vietnam
-              </h2>
-              <p
-                className="mt-4 text-base leading-relaxed text-muted-foreground"
-                data-testid="text-story-body"
-              >
-                En Pho Viet celebramos la tradición con ingredientes frescos y
-                técnicas de cocción paciente. Nuestro caldo se construye capa por
-                capa — para que cada sorbo sea cálido, limpio y memorable.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3" data-testid="story-bullets">
-                {[
-                  "Hierbas frescas todos los días",
-                  "Caldo de cocción lenta",
-                  "Recetas familiares con toque moderno",
-                ].map((t, i) => (
-                  <div
-                    key={t}
-                    className="inline-flex items-center gap-2 rounded-full border bg-card px-3 py-1 text-sm shadow-sm"
-                    data-testid={`pill-story-${i}`}
-                  >
-                    <span className="grid h-5 w-5 place-items-center rounded-full bg-accent/12 text-accent">
-                      <Check className="h-3.5 w-3.5" />
-                    </span>
-                    <span>{t}</span>
-                  </div>
-                ))}
+              <div className="inline-flex items-center gap-2 rounded-full border bg-background/50 px-3 py-1 text-[10px] uppercase tracking-widest font-bold text-accent">Desde 2014</div>
+              <h1 className="mt-6 font-serif text-4xl md:text-6xl font-bold leading-[1.1]" data-testid="text-hero-title">Sabores que conquistan desde el primer sorbo.</h1>
+              <p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-lg">Pho Viet trae el alma de Vietnam a tu mesa con caldos de 12 horas y los ingredientes más frescos.</p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Button size="lg" asChild><a href="#menu">Explorar Menú</a></Button>
+                <Button variant="secondary" size="lg" asChild><a href="#reservations">Reservar Mesa</a></Button>
               </div>
             </div>
-
-            <div className="relative">
-              <div
-                className="relative overflow-hidden rounded-3xl border bg-card shadow-lg"
-                data-testid="img-chef-wrap"
-              >
-                <img
-                  src={chefTeam}
-                  alt="Chef preparando pho"
-                  className="h-[420px] w-full object-cover"
-                  data-testid="img-chef"
-                />
-                <div
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-background/40 via-transparent to-secondary/10"
-                  aria-hidden="true"
-                />
-              </div>
-              <div
-                className="absolute -right-3 -top-3 hidden rounded-2xl border bg-background/85 px-4 py-3 shadow-lg backdrop-blur md:block"
-                data-testid="badge-story-float"
-              >
-                <div className="text-xs text-muted-foreground">Desde</div>
-                <div className="font-serif text-lg font-semibold">2014</div>
-              </div>
+            <div className="relative group">
+              <div className="absolute inset-0 bg-secondary/20 rounded-[2rem] blur-3xl group-hover:bg-secondary/30 transition-colors" />
+              <img src={heroPho} alt="Pho" className="relative rounded-[2rem] border shadow-2xl object-cover aspect-[4/5] w-full" />
             </div>
           </motion.div>
         </section>
 
-        <section
-          id="menu"
-          className="mx-auto max-w-6xl px-4 py-14 md:px-6"
-          aria-label="Menú"
-          data-testid="section-menu"
-        >
-          <motion.div
-            ref={menu.ref}
-            initial="hidden"
-            animate={menu.inView ? "show" : "hidden"}
-            variants={SECTION_FADE}
-            transition={{ duration: 0.55, ease: "easeOut" }}
-          >
-            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-              <div>
-                <h2
-                  className="font-serif text-3xl font-semibold tracking-tight"
-                  data-testid="text-menu-title"
-                >
-                  Menú
-                </h2>
-                <p
-                  className="mt-2 max-w-2xl text-muted-foreground"
-                  data-testid="text-menu-subtitle"
-                >
-                  Explora por categorías. Fotos, descripciones claras y precios a
-                  la vista — listo para elegir.
-                </p>
-              </div>
-              <a
-                href="#reservations"
-                className="inline-flex items-center gap-2 text-sm text-secondary hover:underline"
-                data-testid="link-menu-to-reservations"
-              >
-                Reservar ahora <ArrowRight className="h-4 w-4" />
-              </a>
+        <section id="menu" className="py-20 px-4 md:px-6 bg-card/30">
+          <motion.div ref={menu.ref} initial="hidden" animate={menu.inView ? "show" : "hidden"} variants={SECTION_FADE} className="mx-auto max-w-6xl">
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-5xl font-bold">Nuestro Menú</h2>
+              <p className="mt-4 text-muted-foreground">Autenticidad en cada categoría, frescura en cada plato.</p>
             </div>
 
-            <div className="mt-7">
-              <Tabs
-                value={activeCat}
-                onValueChange={(v) => setActiveCat(v as MenuCategory)}
-              >
-                <TabsList className="flex h-auto w-full flex-wrap justify-start gap-2 bg-transparent p-0">
-                  {(
-                    [
-                      "Pho",
-                      "Vermicelli",
-                      "Rice Platters",
-                      "Appetizers",
-                      "Drinks",
-                    ] as MenuCategory[]
-                  ).map((cat) => (
-                    <TabsTrigger
-                      key={cat}
-                      value={cat}
-                      data-testid={`tab-menu-${cat}`}
-                      className="rounded-full border bg-card px-4 py-2 text-sm shadow-sm transition-colors data-[state=active]:border-secondary/60 data-[state=active]:bg-secondary/12 data-[state=active]:text-foreground"
-                    >
+            <Tabs value={activeCat} onValueChange={(v) => setActiveCat(v as MenuCategory)} className="w-full">
+              <div className="flex justify-center mb-10 overflow-x-auto pb-4">
+                <TabsList className="bg-muted/50 p-1 rounded-full h-auto flex-nowrap">
+                  {CATEGORIES.map((cat) => (
+                    <TabsTrigger key={cat} value={cat} className="rounded-full px-6 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground text-xs font-bold uppercase tracking-wider">
                       {cat}
                     </TabsTrigger>
                   ))}
                 </TabsList>
-              </Tabs>
+              </div>
 
-              <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {filteredMenu.map((item) => (
-                  <Card
-                    key={item.id}
-                    className="group overflow-hidden border bg-card shadow-sm transition hover:shadow-md"
-                    data-testid={`card-menu-${item.id}`}
-                  >
-                    <div className="flex gap-4 p-4">
-                      <div className="relative h-20 w-20 overflow-hidden rounded-2xl border bg-muted/30">
-                        {item.image ? (
-                          <img
-                            src={item.image}
-                            alt={item.name}
-                            className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.06]"
-                            data-testid={`img-menu-${item.id}`}
-                          />
-                        ) : (
-                          <div
-                            className="grid h-full w-full place-items-center text-xs text-muted-foreground"
-                            data-testid={`img-menu-placeholder-${item.id}`}
-                          >
-                            Foto
-                          </div>
-                        )}
+                  <Card key={item.id} className="group p-4 flex gap-4 bg-background hover:shadow-lg transition-all border-none">
+                    <div className="h-24 w-24 shrink-0 rounded-2xl overflow-hidden bg-muted">
+                      {item.image ? (
+                        <img src={item.image} alt={item.name} className="h-full w-full object-cover group-hover:scale-110 transition-transform" />
+                      ) : (
+                        <div className="h-full w-full flex items-center justify-center text-[10px] uppercase font-bold text-muted-foreground opacity-50">Sabor</div>
+                      )}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex justify-between items-start gap-4 mb-1">
+                        <h3 className="font-bold text-base truncate">{item.name}</h3>
+                        <span className="font-bold text-primary whitespace-nowrap">{formatPrice(item.price)}</span>
                       </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="min-w-0">
-                            <div
-                              className="truncate font-medium"
-                              data-testid={`text-menu-name-${item.id}`}
-                            >
-                              {item.name}
-                            </div>
-                            <div
-                              className="mt-1 line-clamp-2 text-sm text-muted-foreground"
-                              data-testid={`text-menu-desc-${item.id}`}
-                            >
-                              {item.description}
-                            </div>
-                          </div>
-                          <div
-                            className="shrink-0 rounded-full border bg-background px-3 py-1 text-sm shadow-sm"
-                            data-testid={`text-menu-price-${item.id}`}
-                          >
-                            {money(item.price)}
-                          </div>
-                        </div>
-                        {item.chefPick ? (
-                          <div
-                            className="mt-3 inline-flex items-center gap-2 rounded-full bg-secondary/12 px-3 py-1 text-xs text-secondary"
-                            data-testid={`badge-chef-${item.id}`}
-                          >
-                            <Star className="h-3.5 w-3.5 fill-secondary" />
-                            Plato del Chef
-                          </div>
-                        ) : null}
-                      </div>
+                      <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">{item.description}</p>
+                      {item.chefPick && <div className="mt-2 inline-flex items-center gap-1.5 text-[10px] font-bold uppercase text-secondary"><Star className="h-3 w-3 fill-secondary" /> Especialidad</div>}
                     </div>
                   </Card>
                 ))}
               </div>
-
-              <div className="mt-10">
-                <div className="flex items-end justify-between gap-6">
-                  <div>
-                    <h3
-                      className="font-serif text-2xl font-semibold tracking-tight"
-                      data-testid="text-chef-title"
-                    >
-                      Platos del Chef
-                    </h3>
-                    <p
-                      className="mt-2 text-sm text-muted-foreground"
-                      data-testid="text-chef-sub"
-                    >
-                      Los favoritos de la casa — fotos grandes y antojo inmediato.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-2">
-                  {chefPicks.slice(0, 2).map((item) => (
-                    <div
-                      key={item.id}
-                      className="group relative overflow-hidden rounded-3xl border bg-card shadow-md"
-                      data-testid={`card-chef-${item.id}`}
-                    >
-                      <img
-                        src={item.image ?? heroPho}
-                        alt={item.name}
-                        className="h-[260px] w-full object-cover transition duration-700 group-hover:scale-[1.04]"
-                        data-testid={`img-chef-${item.id}`}
-                      />
-                      <div
-                        className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-transparent"
-                        aria-hidden="true"
-                      />
-                      <div className="absolute bottom-0 left-0 right-0 p-5">
-                        <div className="flex items-end justify-between gap-4">
-                          <div>
-                            <div
-                              className="font-serif text-xl font-semibold"
-                              data-testid={`text-chef-name-${item.id}`}
-                            >
-                              {item.name}
-                            </div>
-                            <div
-                              className="mt-1 text-sm text-muted-foreground"
-                              data-testid={`text-chef-desc-${item.id}`}
-                            >
-                              {item.description}
-                            </div>
-                          </div>
-                          <div
-                            className="rounded-full border bg-background/80 px-3 py-1 text-sm shadow-sm backdrop-blur"
-                            data-testid={`text-chef-price-${item.id}`}
-                          >
-                            {money(item.price)}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            </Tabs>
           </motion.div>
         </section>
 
-        <section
-          id="gallery"
-          className="mx-auto max-w-6xl px-4 py-14 md:px-6"
-          aria-label="Galería"
-          data-testid="section-gallery"
-        >
-          <motion.div
-            ref={gallerySection.ref}
-            initial="hidden"
-            animate={gallerySection.inView ? "show" : "hidden"}
-            variants={SECTION_FADE}
-            transition={{ duration: 0.55, ease: "easeOut" }}
-          >
-            <div className="flex items-end justify-between gap-6">
-              <div>
-                <h2
-                  className="font-serif text-3xl font-semibold tracking-tight"
-                  data-testid="text-gallery-title"
-                >
-                  Galería
-                </h2>
-                <p
-                  className="mt-2 text-muted-foreground"
-                  data-testid="text-gallery-subtitle"
-                >
-                  Visual storytelling: platos, ambiente y momentos.
-                </p>
-              </div>
-            </div>
-
-            <div
-              className="mt-7 columns-2 gap-4 md:columns-3"
-              data-testid="grid-gallery"
-            >
-              {gallery.map((src, idx) => (
-                <button
-                  key={src}
-                  type="button"
-                  onClick={() => setLightbox(src)}
-                  className="group relative mb-4 w-full overflow-hidden rounded-3xl border bg-card shadow-sm transition hover:shadow-md"
-                  data-testid={`button-gallery-${idx}`}
-                  aria-label="Abrir imagen"
-                >
-                  <img
-                    src={src}
-                    alt={`Galería ${idx + 1}`}
-                    className="w-full object-cover transition duration-700 group-hover:scale-[1.06]"
-                    data-testid={`img-gallery-${idx}`}
-                  />
-                  <div
-                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-secondary/30 via-transparent to-transparent opacity-0 transition duration-300 group-hover:opacity-100"
-                    aria-hidden="true"
-                  />
+        <section id="gallery" className="py-20 px-4 md:px-6">
+          <motion.div ref={gallerySection.ref} initial="hidden" animate={gallerySection.inView ? "show" : "hidden"} variants={SECTION_FADE} className="mx-auto max-w-6xl">
+            <h2 className="font-serif text-3xl md:text-5xl font-bold text-center mb-12">Galería Visual</h2>
+            <div className="columns-2 md:columns-3 gap-6">
+              {gallery.map((src, i) => (
+                <button key={i} onClick={() => setLightbox(src)} className="w-full mb-6 rounded-3xl overflow-hidden border shadow-sm hover:shadow-xl transition-all group">
+                  <img src={src} alt="Gallery" className="w-full group-hover:scale-105 transition-transform duration-700" />
                 </button>
               ))}
             </div>
           </motion.div>
         </section>
 
-        <section
-          id="reservations"
-          className="mx-auto max-w-6xl px-4 py-14 md:px-6"
-          aria-label="Reservaciones"
-          data-testid="section-reservations"
-        >
-          <motion.div
-            ref={reservation.ref}
-            initial="hidden"
-            animate={reservation.inView ? "show" : "hidden"}
-            variants={SECTION_FADE}
-            transition={{ duration: 0.55, ease: "easeOut" }}
-            className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-start"
-          >
+        <section id="reservations" className="py-20 px-4 md:px-6 bg-foreground text-background">
+          <motion.div ref={reservation.ref} initial="hidden" animate={reservation.inView ? "show" : "hidden"} variants={SECTION_FADE} className="mx-auto max-w-4xl grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2
-                className="font-serif text-3xl font-semibold tracking-tight"
-                data-testid="text-reservations-title"
-              >
-                Reservaciones
-              </h2>
-              <p
-                className="mt-2 text-muted-foreground"
-                data-testid="text-reservations-subtitle"
-              >
-                Flujo rápido: elige fecha, hora y número de personas.
-              </p>
-
-              <div
-                className="mt-6 rounded-3xl border bg-card p-6 shadow-sm"
-                data-testid="card-reservations"
-              >
-                <form
-                  className="grid gap-4"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                  }}
-                  data-testid="form-reservation"
-                >
-                  <div className="grid gap-2">
-                    <Label htmlFor="name" data-testid="label-name">
-                      Nombre
-                    </Label>
-                    <Input
-                      id="name"
-                      placeholder="Tu nombre"
-                      data-testid="input-name"
-                    />
+              <h2 className="font-serif text-3xl md:text-5xl font-bold">Reserva una mesa</h2>
+              <p className="mt-6 text-background/70 leading-relaxed">Asegura tu lugar y disfruta de la mejor comida vietnamita en un ambiente inigualable.</p>
+              <div className="mt-8 flex flex-col gap-4">
+                <div className="flex items-center gap-4">
+                  <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30"><Phone className="h-5 w-5 text-primary" /></div>
+                  <div>
+                    <div className="text-xs uppercase font-bold tracking-widest text-background/50">Llámanos</div>
+                    <a href="tel:+15551234567" className="text-xl font-bold hover:text-primary transition-colors">(555) 123-4567</a>
                   </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="phone" data-testid="label-phone">
-                      Teléfono
-                    </Label>
-                    <Input
-                      id="phone"
-                      placeholder="(555) 123-4567"
-                      data-testid="input-phone"
-                    />
-                  </div>
-                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <div className="grid gap-2">
-                      <Label htmlFor="date" data-testid="label-date">
-                        Fecha
-                      </Label>
-                      <Input id="date" type="date" data-testid="input-date" />
-                    </div>
-                    <div className="grid gap-2">
-                      <Label htmlFor="time" data-testid="label-time">
-                        Hora
-                      </Label>
-                      <Input id="time" type="time" data-testid="input-time" />
-                    </div>
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="party" data-testid="label-party">
-                      Personas
-                    </Label>
-                    <Input
-                      id="party"
-                      type="number"
-                      min={1}
-                      max={14}
-                      defaultValue={2}
-                      data-testid="input-party"
-                    />
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="notes" data-testid="label-notes">
-                      Notas
-                    </Label>
-                    <Textarea
-                      id="notes"
-                      placeholder="Alergias, ocasión especial, etc."
-                      data-testid="input-notes"
-                    />
-                  </div>
-
-                  <Button
-                    type="submit"
-                    className="mt-2 shadow-md"
-                    data-testid="button-confirmar-reserva"
-                  >
-                    Confirmar reservación
-                  </Button>
-
-                  <Button
-                    type="button"
-                    variant="secondary"
-                    className="shadow-md"
-                    onClick={() => {
-                      window.location.href = "tel:+15551234567";
-                    }}
-                    data-testid="button-llamar-reservar"
-                  >
-                    <Phone className="mr-2 h-4 w-4" />
-                    Llamar para reservar
-                  </Button>
-
-                  <div
-                    className="text-xs text-muted-foreground"
-                    data-testid="text-reservation-note"
-                  >
-                    * Demo: la reservación no se guarda (prototipo).
-                  </div>
-                </form>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div
-                className="rounded-3xl border bg-card p-6 shadow-sm"
-                data-testid="card-reservation-side"
-              >
-                <div
-                  className="text-sm text-muted-foreground"
-                  data-testid="text-contact"
-                >
-                  Contacto
-                </div>
-                <div
-                  className="mt-2 font-serif text-2xl font-semibold"
-                  data-testid="text-contact-title"
-                >
-                  Una mesa lista, un pho humeante
-                </div>
-                <p
-                  className="mt-3 text-sm leading-relaxed text-muted-foreground"
-                  data-testid="text-contact-body"
-                >
-                  Para grupos grandes o eventos, escríbenos y te ayudamos a armar
-                  una experiencia a medida.
-                </p>
-                <div className="mt-6 grid gap-3">
-                  <a
-                    href="https://maps.google.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group inline-flex items-center justify-between rounded-2xl border bg-background px-4 py-3 text-sm shadow-sm transition hover:shadow-md"
-                    data-testid="link-maps"
-                  >
-                    Ver ubicación
-                    <ExternalLink className="h-4 w-4 text-muted-foreground transition group-hover:text-foreground" />
-                  </a>
-                  <a
-                    href="mailto:reservas@phoviet.com"
-                    className="group inline-flex items-center justify-between rounded-2xl border bg-background px-4 py-3 text-sm shadow-sm transition hover:shadow-md"
-                    data-testid="link-email"
-                  >
-                    reservas@phoviet.com
-                    <ArrowRight className="h-4 w-4 text-muted-foreground transition group-hover:text-foreground" />
-                  </a>
                 </div>
               </div>
             </div>
-          </motion.div>
-        </section>
-
-        <section
-          id="reviews"
-          className="mx-auto max-w-6xl px-4 py-14 md:px-6"
-          aria-label="Testimoniales"
-          data-testid="section-reviews"
-        >
-          <motion.div
-            ref={reviews.ref}
-            initial="hidden"
-            animate={reviews.inView ? "show" : "hidden"}
-            variants={SECTION_FADE}
-            transition={{ duration: 0.55, ease: "easeOut" }}
-          >
-            <div className="flex items-end justify-between gap-6">
-              <div>
-                <h2
-                  className="font-serif text-3xl font-semibold tracking-tight"
-                  data-testid="text-reviews-title"
-                >
-                  Testimoniales
-                </h2>
-                <p
-                  className="mt-2 text-muted-foreground"
-                  data-testid="text-reviews-subtitle"
-                >
-                  Reseñas estilo Google — estrellas doradas y confianza.
-                </p>
-              </div>
-            </div>
-
-            <div
-              className="mt-7 grid grid-cols-1 gap-4 md:grid-cols-3"
-              data-testid="grid-reviews"
-            >
-              {REVIEWS.map((r) => (
-                <Card
-                  key={r.id}
-                  className="border bg-card p-6 shadow-sm"
-                  data-testid={`card-review-${r.id}`}
-                >
-                  <div className="flex items-center justify-between">
-                    <div
-                      className="font-medium"
-                      data-testid={`text-review-name-${r.id}`}
-                    >
-                      {r.name}
-                    </div>
-                    <Stars rating={r.rating} idPrefix={`review-${r.id}`} />
-                  </div>
-                  <p
-                    className="mt-4 text-sm leading-relaxed text-muted-foreground"
-                    data-testid={`text-review-body-${r.id}`}
-                  >
-                    “{r.text}”
-                  </p>
-                  <div
-                    className="mt-5 text-xs text-muted-foreground"
-                    data-testid={`text-review-source-${r.id}`}
-                  >
-                    Google Reviews (visual)
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </motion.div>
-        </section>
-
-        <footer
-          className="border-t bg-[hsl(var(--foreground))] text-[hsl(var(--background))]"
-          data-testid="footer"
-        >
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 py-14 md:grid-cols-4 md:px-6">
-            <div className="md:col-span-2">
-              <div className="flex items-center gap-3" data-testid="footer-brand">
-                <div className="grid h-10 w-10 place-items-center rounded-2xl bg-[hsl(var(--background))] text-[hsl(var(--foreground))]">
-                  <span className="font-serif text-base font-semibold">PV</span>
+            <Card className="p-8 text-foreground bg-background border-none shadow-2xl rounded-[2rem]">
+              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                <div className="space-y-2">
+                  <Label>Nombre</Label>
+                  <Input placeholder="Tu nombre" />
                 </div>
-                <div>
-                  <div className="font-serif text-lg font-semibold">Pho Viet</div>
-                  <div className="text-sm opacity-80">Authentic Vietnamese Cuisine</div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label>Fecha</Label>
+                    <Input type="date" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Hora</Label>
+                    <Input type="time" />
+                  </div>
                 </div>
-              </div>
-              <p className="mt-4 max-w-md text-sm leading-relaxed opacity-85" data-testid="text-footer-desc">
-                Una experiencia sofisticada pero acogedora: tradición, frescura e
-                ingredientes naturales en cada bowl.
-              </p>
-            </div>
-
-            <div>
-              <div className="text-sm font-medium" data-testid="text-footer-links-title">Links</div>
-              <div className="mt-4 grid gap-2 text-sm opacity-85" data-testid="list-footer-links">
-                <a href="#menu" className="hover:opacity-100 hover:underline" data-testid="link-footer-menu">Menú</a>
-                <a href="#gallery" className="hover:opacity-100 hover:underline" data-testid="link-footer-gallery">Galería</a>
-                <a href="#reservations" className="hover:opacity-100 hover:underline" data-testid="link-footer-reservations">Reservas</a>
-                <a href="#reviews" className="hover:opacity-100 hover:underline" data-testid="link-footer-reviews">Reseñas</a>
-              </div>
-            </div>
-
-            <div>
-              <div className="text-sm font-medium" data-testid="text-footer-news-title">Newsletter</div>
-              <p className="mt-4 text-sm opacity-85" data-testid="text-footer-news-body">
-                Novedades, especiales del chef y eventos.
-              </p>
-              <form
-                className="mt-4 flex gap-2"
-                onSubmit={(e) => e.preventDefault()}
-                data-testid="form-newsletter"
-              >
-                <Input
-                  placeholder="Tu email"
-                  className="h-10 bg-[hsl(var(--foreground))] text-[hsl(var(--background))] placeholder:text-[hsl(var(--background))]/60"
-                  data-testid="input-newsletter"
-                />
-                <Button
-                  type="submit"
-                  variant="secondary"
-                  className="h-10"
-                  data-testid="button-newsletter"
-                >
-                  Unirme
-                </Button>
+                <div className="space-y-2">
+                  <Label>Comensales</Label>
+                  <Input type="number" defaultValue={2} />
+                </div>
+                <Button className="w-full h-12 text-base font-bold" size="lg">Confirmar Reserva</Button>
               </form>
-
-              <div className="mt-6 flex items-center gap-3" data-testid="footer-social">
-                {[
-                  { label: "Instagram", href: "https://instagram.com" },
-                  { label: "Facebook", href: "https://facebook.com" },
-                  { label: "TikTok", href: "https://tiktok.com" },
-                ].map((s) => (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-[hsl(var(--background))]/20 bg-[hsl(var(--foreground))] px-3 py-1 text-xs text-[hsl(var(--background))] opacity-85 transition hover:opacity-100"
-                    data-testid={`link-social-${s.label.toLowerCase()}`}
-                  >
-                    {s.label}
-                    <ArrowRight className="h-3.5 w-3.5 opacity-70" />
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-[hsl(var(--background))]/10">
-            <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs opacity-75 md:flex-row md:items-center md:justify-between md:px-6">
-              <div data-testid="text-footer-copy">© {new Date().getFullYear()} Pho Viet Restaurant</div>
-              <div className="flex items-center gap-2" data-testid="text-footer-meta">
-                <span>Hecho con ingredientes frescos</span>
-                <span aria-hidden="true">·</span>
-                <span>Vietnam vibes</span>
-              </div>
-            </div>
-          </div>
-        </footer>
-
-        <Dialog open={!!lightbox} onOpenChange={(o) => setLightbox(o ? lightbox : null)}>
-          <DialogContent className="max-w-4xl border bg-card p-0" data-testid="dialog-lightbox">
-            <DialogHeader className="px-6 pt-6">
-              <DialogTitle className="font-serif" data-testid="text-lightbox-title">
-                Galería
-              </DialogTitle>
-            </DialogHeader>
-            {lightbox ? (
-              <div className="px-6 pb-6">
-                <div className="overflow-hidden rounded-2xl border bg-muted/20" data-testid="img-lightbox-wrap">
-                  <img
-                    src={lightbox}
-                    alt="Imagen ampliada"
-                    className="max-h-[70vh] w-full object-contain"
-                    data-testid="img-lightbox"
-                  />
-                </div>
-              </div>
-            ) : null}
-          </DialogContent>
-        </Dialog>
+            </Card>
+          </motion.div>
+        </section>
       </main>
+
+      <footer className="py-12 px-4 md:px-6 border-t bg-card/50">
+        <div className="mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="text-center md:text-left">
+            <div className="font-serif text-2xl font-bold">Pho Viet</div>
+            <p className="mt-2 text-sm text-muted-foreground">© 2026 Authentic Vietnamese Cuisine. Todos los derechos reservados.</p>
+          </div>
+          <div className="flex gap-6 text-sm font-bold uppercase tracking-widest">
+            <a href="#menu" className="hover:text-primary">Menú</a>
+            <a href="#gallery" className="hover:text-primary">Galería</a>
+            <a href="#reservations" className="hover:text-primary">Reservas</a>
+          </div>
+        </div>
+      </footer>
+
+      <Dialog open={!!lightbox} onOpenChange={(o) => setLightbox(o ? lightbox : null)}>
+        <DialogContent className="max-w-4xl p-0 overflow-hidden border-none bg-transparent shadow-none">
+          {lightbox && <img src={lightbox} className="w-full h-auto rounded-3xl" alt="Lightbox" />}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
