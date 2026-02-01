@@ -66,8 +66,7 @@ export default function Home() {
     imgComGa,
     imgChaGio,
     imgHuTieu,
-    imgTomChien,
-    imgInterior
+    imgTomChien
   ];
 
   const hero = useSectionInView();
@@ -118,7 +117,7 @@ export default function Home() {
             </div>
             <div className="relative group">
               <div className="absolute inset-0 bg-secondary/20 rounded-[2rem] blur-3xl group-hover:bg-secondary/30 transition-colors" />
-              <img src={heroPho} alt="Pho" className="relative rounded-[2rem] border shadow-2xl object-cover aspect-[4/5] w-full" />
+              <img src={imgInterior} alt="Interior Pho Viet Restaurant" className="relative rounded-[2rem] border shadow-2xl object-cover aspect-[4/5] w-full" />
             </div>
           </motion.div>
         </section>
