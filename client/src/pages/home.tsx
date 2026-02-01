@@ -106,7 +106,6 @@ export default function Home() {
         <section id="reviews" className="py-20 px-4 md:px-6 bg-background">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={SECTION_FADE} className="mx-auto max-w-6xl">
             <div className="text-center mb-16">
-              <div className="inline-flex items-center gap-2 rounded-full border bg-primary/5 px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-bold text-primary mb-4">Testimonios</div>
               <h2 className="font-serif text-3xl md:text-5xl font-bold">Lo que dicen nuestros clientes</h2>
               <div className="mt-4 flex justify-center gap-1 text-secondary">
                 {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 fill-current" />)}
