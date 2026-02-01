@@ -251,11 +251,11 @@ export default function MenuPage() {
       </main>
 
       <footer className="py-12 px-4 md:px-6 border-t bg-card/30">
-        <div className="mx-auto max-w-6xl text-center">
-          <p className="text-xs text-muted-foreground uppercase tracking-[0.2em] font-bold">Pho Viet • Sabor Auténtico</p>
-          <p className="mt-4 text-sm text-muted-foreground">Copyright © 2026 Pho Viet Restaurant - Todos los derechos reservados.</p>
-          <p className="mt-2 text-primary font-bold">Gracias por su visita</p>
-        </div>
+          <div className="mx-auto max-w-6xl text-center">
+            <p className="text-xs text-muted-foreground uppercase tracking-[0.2em] font-bold">Pho Viet Restaurant • Sabor Auténtico</p>
+            <p className="mt-4 text-sm text-muted-foreground">Copyright © 2026 Pho Viet Restaurant - Todos los derechos reservados.</p>
+            <p className="mt-2 text-primary font-bold">Gracias por su visita</p>
+          </div>
       </footer>
     </div>
   );
