@@ -108,7 +108,7 @@ export default function Home() {
           </div>
           <motion.div ref={hero.ref} initial="hidden" animate={hero.inView ? "show" : "hidden"} variants={SECTION_FADE} className="relative z-10 mx-auto max-w-6xl grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="mt-6 font-serif text-4xl md:text-6xl font-bold leading-[1.1]">Bienvenido a Pho Viet — donde cada plato te abraza con sabor.</h1>
+              <h1 className="mt-6 font-serif text-4xl md:text-6xl font-bold leading-[1.1]">Bienvenido a Pho Viet Restaurant — donde cada plato te abraza con sabor.</h1>
               <p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-lg">Aquí cada plato se prepara con paciencia y cariño. Nuestros caldos cocidos por horas, las hierbas frescas y los ingredientes auténticos no son solo comida: son momentos para compartir, son recuerdos que se crean alrededor de la mesa. Ven, relájate y disfruta de sabores que te harán sentir en casa.</p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Button size="lg" asChild><Link href="/menu">Ver Menú Completo</Link></Button>
