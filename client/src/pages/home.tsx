@@ -7,6 +7,7 @@ import {
   ExternalLink,
   Phone,
   Star,
+  Info,
 } from "lucide-react";
 
 import heroPho from "@/assets/images/hero-pho.png";
@@ -44,7 +45,8 @@ type MenuCategory =
   | "Bún (Ensalada)"
   | "Arroz Frito"
   | "Vegetariano"
-  | "Bebidas";
+  | "Bebidas"
+  | "Extras";
 
 type MenuItem = {
   id: string;
@@ -72,7 +74,7 @@ const MENU: MenuItem[] = [
   { id: "s3", category: "Sopa", name: "S3 Súp Gà", description: "Sopa de pollo desmenuzado", price: 5.95 },
 
   // Phở - Pho
-  { id: "p1", category: "Pho", name: "P1 Phở Đặc Biệt", description: "Pho especial con carne de res poco hecha, filete de falda bien hecho, tendón, callos y albóndigas de res", price: "L $14.95 / XL $15.95", image: heroPho, chefPick: true },
+  { id: "p1", category: "Pho", name: "P1 Phở Đặc Biệt", description: "Pho especial con carne de res poco hecha, filete de falda bien hecho, tendón, callos y albóndigas de res. Servido con brotes de soja, jalapeño y lima.", price: "L $14.95 / XL $15.95", image: heroPho, chefPick: true },
   { id: "p2", category: "Pho", name: "P2 Phở Tái", description: "Pho de carne poco hecha", price: "L $13.95 / XL $14.95" },
   { id: "p3", category: "Pho", name: "P3 Phở tái bò viên", description: "Pho de carne de res poco hecha y albóndigas de res", price: "L $13.95 / XL $14.95" },
   { id: "p4", category: "Pho", name: "P4 Phở Tái Nạm", description: "Pho de carne de res y pecho poco hecho", price: "L $13.95 / XL $14.95" },
@@ -80,39 +82,113 @@ const MENU: MenuItem[] = [
   { id: "p6", category: "Pho", name: "P6 Phở Gà", description: "Pho de pollo", price: "L $13.95 / XL $14.95" },
   { id: "p7", category: "Pho", name: "P7 Phở Đồ biển", description: "Pho de mariscos", price: "L $13.95 / XL $14.95" },
   { id: "p8", category: "Pho", name: "P8 Phở nạm", description: "Pho de pechuga", price: "L $13.95 / XL $14.95" },
-  { id: "p9", category: "Pho", name: "P9 Phở đặc biệt thái lan", description: "Pho especial al estilo tailandés", price: "L $14.95 / XL $15.95" },
+  { id: "p9", category: "Pho", name: "P9 Phở đặc biệt thái lan", description: "Pho especial al estilo tailandés con carne de res poco hecha, filete de falda, tendón, callos y albóndigas.", price: "L $14.95 / XL $15.95" },
   { id: "p10", category: "Pho", name: "P10 PhỞ TÔM", description: "Pho de camarones", price: "L $13.95 / XL $14.95" },
 
   // Hủ Tiếu - Fideos de Arroz
-  { id: "h1", category: "Fideos de Arroz", name: "H1 Hủ tiếu thập cẩm", description: "Sopa combinada de fideos de arroz", price: 14.95 },
+  { id: "h1", category: "Fideos de Arroz", name: "H1 Hủ tiếu thập cẩm", description: "Sopa combinada de fideos de arroz. Caldo de pollo.", price: 14.95 },
   { id: "h2", category: "Fideos de Arroz", name: "H2 Hủ tiếu đồ biển", description: "Sopa de fideos de arroz con mariscos", price: 13.95 },
   { id: "h3", category: "Fideos de Arroz", name: "H3 Hủ tiếu tôm", description: "Sopa de fideos de arroz con camarones", price: 12.95 },
+  { id: "h4", category: "Fideos de Arroz", name: "H4 Hủ tiếu tôm viên, cá viên", description: "Sopa de fideos de arroz con albóndigas de camarones y pescado", price: 12.95 },
+  { id: "h5", category: "Fideos de Arroz", name: "H5 Hủ tiếu gà", description: "Sopa de fideos de arroz con pollo desmenuzado", price: 12.95 },
+  { id: "h6", category: "Fideos de Arroz", name: "H6 Hủ tiếu xá xíu", description: "Sopa de fideos de arroz con cerdo a la barbacoa", price: 12.95 },
 
   // Mì - Fideos de Huevo
-  { id: "m1", category: "Fideos de Huevo", name: "M1 Mì thập cẩm", description: "Sopa combinada de fideos con huevo", price: 14.95 },
+  { id: "m1", category: "Fideos de Huevo", name: "M1 Mì thập cẩm", description: "Sopa combinada de fideos con huevo amarillos. Caldo de pollo.", price: 14.95 },
   { id: "m2", category: "Fideos de Huevo", name: "M2 Mì đồ biển", description: "Sopa de fideos de huevo con mariscos", price: 13.95 },
-  { id: "m8", category: "Fideos de Huevo", name: "M8 Mì xào giòn thập cẩm", description: "Fideos de huevo combinados salteados (sin sopa)", price: 15.95, chefPick: true },
+  { id: "m3", category: "Fideos de Huevo", name: "M3 Mi tôm", description: "Sopa de fideos con huevo y camarones", price: 13.95 },
+  { id: "m4", category: "Fideos de Huevo", name: "M4 Mì tôm viên, cá viên", description: "Albóndigas de camarones, albóndigas de pescado, sopa de fideos con huevo", price: 13.95 },
+  { id: "m5", category: "Fideos de Huevo", name: "M5 Mi gá", description: "Sopa de fideos con huevo y pollo desmenuzado", price: 13.95 },
+  { id: "m6", category: "Fideos de Huevo", name: "M6 Mì hoành thánh", description: "Sopa de fideos con huevo y wonton", price: 13.95 },
+  { id: "m7", category: "Fideos de Huevo", name: "M7 Mì xá xíu", description: "Sopa de fideos con huevo y cerdo a la barbacoa", price: 13.95 },
+  { id: "m8", category: "Fideos de Huevo", name: "Mì xào giòn thập cẩm", description: "Fideos de huevo combinados salteados (sin sopa)", price: 15.95, chefPick: true },
+  { id: "m9", category: "Fideos de Huevo", name: "M9 Mì xào giòn đồbiển", description: "Fideos de huevo fritos con mariscos (sin sopa)", price: 15.95 },
+  { id: "m10", category: "Fideos de Huevo", name: "M10 Mì xào giòn tôm, xá xíu", description: "Fideos de huevo fritos con camarones y cerdo a la barbacoa", price: 15.95 },
+  { id: "m11", category: "Fideos de Huevo", name: "M11 Mì xào giòn tôm", description: "Fideos de huevo fritos con camarones", price: 15.95 },
 
   // Cơm - Platos de arroz
-  { id: "c1", category: "Arroz", name: "C1 Cơm Sườn", description: "Chuletas de cerdo a la parrilla", price: 13.95 },
+  { id: "c1", category: "Arroz", name: "C1 Cơm Sườn", description: "Chuletas de cerdo a la parrilla. Servido con arroz blanco, lechuga, pepino, tomate y sopa.", price: 13.95 },
+  { id: "c2", category: "Arroz", name: "C2 Cơm sườn chả", description: "Chuletas de cerdo a la parrilla y pastel de carne de cerdo", price: 14.95 },
   { id: "c3", category: "Arroz", name: "C3 Cơm sườn, chả, ốp la", description: "Chuletas de cerdo a la parrilla, pastel de carne de cerdo y huevo frito", price: 15.95, image: menuRice, chefPick: true },
+  { id: "c4", category: "Arroz", name: "C4 Cơm Tôm Nướng", description: "Camarones a la parrilla", price: 14.95 },
+  { id: "c5", category: "Arroz", name: "C5 Cơm gà nướng", description: "Pollo a la parrilla", price: 13.95 },
+  { id: "c6", category: "Arroz", name: "C6 Cơm gà nướng, chả", description: "Pollo a la parrilla, pastel de carne", price: 14.95 },
+  { id: "c7", category: "Arroz", name: "C7 Cơm bò nướng", description: "Carne de res a la parrilla", price: 13.95 },
+  { id: "c8", category: "Arroz", name: "C8 Cơm bò nướng, chả", description: "Carne de res a la parrilla, pastel de carne", price: 14.95 },
+  { id: "c9", category: "Arroz", name: "C9 Cơm thịt heo nướng", description: "Cerdo a la parrilla", price: 13.95 },
+  { id: "c10", category: "Arroz", name: "C10 Cơm thịt heo nướng, chả", description: "Cerdo a la parrilla, pastel de carne", price: 14.95 },
+  { id: "c11", category: "Arroz", name: "C11 Cơm sườn, tôm nướng", description: "Chuleta de cerdo a la parrilla, brochetas de camarones", price: 16.95 },
   { id: "c12", category: "Arroz", name: "C12 Cơm bò lúc lắc", description: "Carne de res salteada y temblorosa", price: 15.95 },
 
   // Bún - Fideos en ensalada
-  { id: "b1", category: "Bún (Ensalada)", name: "B1 Bún thịt nướng", description: "Cerdo a la parrilla", price: 13.95, image: menuBun },
+  { id: "b1", category: "Bún (Ensalada)", name: "B1 Bún thịt nướng", description: "Cerdo a la parrilla. Servido con fideos, lechuga, brotes de soja, pepino, zanahoria y menta.", price: 13.95, image: menuBun },
   { id: "b2", category: "Bún (Ensalada)", name: "B2 Bún thịt nướng, chả giò", description: "Cerdo a la parrilla y rollo de huevo crujiente", price: 14.95 },
+  { id: "b3", category: "Bún (Ensalada)", name: "B3 Bún chả giò", description: "Rollitos de huevo crujientes", price: 13.95 },
+  { id: "b4", category: "Bún (Ensalada)", name: "B4 Bún tôm nướng", description: "Brochetas de camarones a la parrilla", price: 14.95 },
+  { id: "b5", category: "Bún (Ensalada)", name: "B5 Bún tôm nướng, chả giò", description: "Brochetas de camarones a la parrilla y rollo de huevo", price: 15.95 },
+  { id: "b6", category: "Bún (Ensalada)", name: "B6 Bún gà nướng", description: "Pollo a la parrilla", price: 13.95 },
+  { id: "b7", category: "Bún (Ensalada)", name: "B7 Bún gà nướng, chả giò", description: "Rollito de pollo y huevo a la parrilla", price: 14.95 },
+  { id: "b8", category: "Bún (Ensalada)", name: "B8 Bún bò nướng", description: "Carne de res a la parrilla", price: 13.95 },
+  { id: "b9", category: "Bún (Ensalada)", name: "B9 Bún bò nướng, chả giò", description: "Rollito de carne a la parrilla y huevo", price: 14.95 },
+  { id: "b10", category: "Bún (Ensalada)", name: "B10 Bún nem nướng", description: "Albóndigas de carne de cerdo a la parrilla", price: 13.95 },
+  { id: "b11", category: "Bún (Ensalada)", name: "B11 Bún nem nướng, chả giò", description: "Albóndigas de carne de cerdo a la parrilla y rollo de huevo", price: 14.95 },
 
   // Cơm Chiên - Arroz frito
-  { id: "cc1", category: "Arroz Frito", name: "CC1 Arroz frito dương châu", description: "Arroz frito combinado", price: 14.95 },
+  { id: "cc1", category: "Arroz Frito", name: "CC1 Cơm chiên dương châu", description: "Arroz frito combinado", price: 14.95 },
+  { id: "cc2", category: "Arroz Frito", name: "CC2 Cơm chiên gà", description: "Arroz frito con pollo", price: 13.95 },
+  { id: "cc3", category: "Arroz Frito", name: "CC3 Cơm chiên tôm", description: "Arroz frito con camarones", price: 14.95 },
+  { id: "cc4", category: "Arroz Frito", name: "CC4 Cơm chiên gà cá mặn", description: "Pescado salado con arroz frito con pollo", price: 15.95 },
+  { id: "cc5", category: "Arroz Frito", name: "CC5 Cơm chiên tôm cá mặn", description: "Pescado salado con arroz frito con camarón", price: 15.95 },
+  { id: "cc6", category: "Arroz Frito", name: "CC6 Cơm chiên cá xíu", description: "Arroz frito con cerdo a la barbacoa", price: 13.95 },
+  { id: "cc7", category: "Arroz Frito", name: "CC7 Cơm chiên tôm cari", description: "Arroz frito con camarones (sabor a curry)", price: 14.95 },
+  { id: "cc8", category: "Arroz Frito", name: "CC8 Cơm chiên gà cari", description: "Arroz frito con pollo (sabor a curry)", price: 14.95 },
+  { id: "cc9", category: "Arroz Frito", name: "CC9 Cơm chiên tôm thái lan", description: "Arroz frito con camarones (estilo tailandés)", price: 15.95 },
+  { id: "cc10", category: "Arroz Frito", name: "CC10 Cơm chiên gà thái lan", description: "Arroz frito con pollo (estilo tailandés)", price: 14.95 },
+  { id: "cc11", category: "Arroz Frito", name: "CC11 Cơm chiên bò", description: "Arroz frito con carne", price: 14.95 },
   { id: "cc12", category: "Arroz Frito", name: "CC12 Cơm gà Asador Chiên", description: "Pollo asado con arroz frito", price: 15.95 },
 
   // Chay - Vegetarian
   { id: "v1", category: "Vegetariano", name: "V1 Gỏi cuốn chay", description: "Rollitos de primavera frescos vegetarianos", price: 6.95 },
+  { id: "v2", category: "Vegetariano", name: "V2 Tàu hủ chiên", description: "Tofu frito", price: 6.95 },
+  { id: "v3", category: "Vegetariano", name: "V3 Súp chay", description: "Sopa vegetariana (caldo de pollo)", price: 6.95 },
   { id: "v4", category: "Vegetariano", name: "V4 Phở chay", description: "Pho vegetariano (caldo de res o caldo de verduras)", price: "L $14.95 / XL 15.95" },
+  { id: "v5", category: "Vegetariano", name: "V5 Hủ tiếu chay", description: "Sopa vegetariana de fideos de arroz (caldo de pollo)", price: 14.95 },
+  { id: "v6", category: "Vegetariano", name: "V6 Bún chay", description: "Fideos vegetarianos en una ensaladera", price: 15.95 },
+  { id: "v7", category: "Vegetariano", name: "V7 Vamos chay", description: "Plato de arroz vegetariano", price: 13.95 },
+  { id: "v8", category: "Vegetariano", name: "V8 Mì chay", description: "Sopa vegetariana de fideos con huevo (caldo de pollo)", price: 14.95 },
+  { id: "v9", category: "Vegetariano", name: "V9 Cơm chiên chay", description: "Arroz frito vegetariano", price: 13.95 },
+  { id: "v10", category: "Vegetariano", name: "V10 Mì xào giòn chay", description: "Fideos vegetarianos salteados (sin sopa)", price: 15.95 },
 
   // Thức uống - Bebidas
-  { id: "n2", category: "Bebidas", name: "N2 Cafe sữa đá", description: "Café helado con leche condensada", price: 4.95 },
+  { id: "n1", category: "Bebidas", name: "N1 Cafe đen đá", description: "Café helado vietnamita", price: 4.95 },
+  { id: "n2", category: "Bebidas", name: "N2 cafe sữa đá", description: "Café helado con leche condensada", price: 4.95 },
+  { id: "n3", category: "Bebidas", name: "N3 Cafe sữa nóng", description: "Café caliente con leche condensada", price: 4.95 },
+  { id: "n4", category: "Bebidas", name: "N4 Nước trái vải", description: "Bebida de lichi (lata)", price: 3.95 },
+  { id: "n5", category: "Bebidas", name: "N5 Nước xoài", description: "Bebida de mango (lata)", price: 3.95 },
+  { id: "n6", category: "Bebidas", name: "N6 Sữa đậu nành", description: "Leche de soja (lata)", price: 3.95 },
+  { id: "n7", category: "Bebidas", name: "N7 Nước đào", description: "Bebida de melocotón (lata)", price: 3.95 },
+  { id: "n8", category: "Bebidas", name: "N8 Nước dừa", description: "Jugo de coco", price: 4.95 },
+  { id: "n9", category: "Bebidas", name: "N9 Trà đá", description: "Té helado", price: 1.50 },
+  { id: "n10", category: "Bebidas", name: "N10 Trà nóng", description: "Té caliente", price: 4.95 },
   { id: "n11", category: "Bebidas", name: "N11 Té tailandés", description: "Thai Tea refrescante", price: 4.95 },
+  { id: "n12", category: "Bebidas", name: "N12 nước ngọt", description: "Refresco (Pepsi, Sprite, Sunkist)", price: 1.50 },
+
+  // Extras
+  { id: "e1", category: "Extras", name: "Tái", description: "Carne cruda", price: 5.00 },
+  { id: "e2", category: "Extras", name: "Nombre", description: "Filete de falda bien cocido", price: 5.00 },
+  { id: "e3", category: "Extras", name: "Gân", description: "Tendón", price: 5.00 },
+  { id: "e4", category: "Extras", name: "Sách", description: "Callos", price: 5.00 },
+  { id: "e5", category: "Extras", name: "Bò Viên", description: "Albóndiga de Res", price: 5.00 },
+  { id: "e6", category: "Extras", name: "Hủ tiếu", description: "Fideos", price: 5.00 },
+  { id: "e7", category: "Extras", name: "Gà nướng", description: "Pollo asado (1)", price: 5.50 },
+  { id: "e8", category: "Extras", name: "Sườn", description: "Chuletas de cerdo a la parrilla (1)", price: 5.50 },
+  { id: "e9", category: "Extras", name: "Bò", description: "Carne a la parrilla (1)", price: 5.50 },
+  { id: "e10", category: "Extras", name: "Thịt nướng", description: "Cerdo asado (1)", price: 5.50 },
+  { id: "e11", category: "Extras", name: "Chả", description: "Pastel de carne de cerdo (1)", price: 2.50 },
+  { id: "e12", category: "Extras", name: "Ốp la", description: "Huevo con el lado soleado hacia arriba (1)", price: 2.50 },
+  { id: "e13", category: "Extras", name: "Nem nướng", description: "Albóndigas de cerdo", price: 3.50 },
+  { id: "e14", category: "Extras", name: "Tôm nướng", description: "Camarones a la parrilla", price: 3.50 },
+  { id: "e15", category: "Extras", name: "Cơm trắng", description: "Arroz blanco al vapor", price: 2.50 },
 ];
 
 const CATEGORIES: MenuCategory[] = [
@@ -126,6 +202,7 @@ const CATEGORIES: MenuCategory[] = [
   "Arroz Frito",
   "Vegetariano",
   "Bebidas",
+  "Extras",
 ];
 
 const REVIEWS = [
@@ -170,15 +247,12 @@ export default function Home() {
   const [lightbox, setLightbox] = useState<string | null>(null);
 
   const filteredMenu = useMemo(() => MENU.filter((m) => m.category === activeCat), [activeCat]);
-  const chefPicks = useMemo(() => MENU.filter((m) => m.chefPick), []);
   const gallery = [heroPho, menuSpringrolls, galleryInterior, chefTeam, menuBun, menuRice];
 
   const hero = useSectionInView();
-  const story = useSectionInView();
   const menu = useSectionInView();
   const gallerySection = useSectionInView();
   const reservation = useSectionInView();
-  const reviews = useSectionInView();
 
   return (
     <div className="min-h-screen">
@@ -227,37 +301,45 @@ export default function Home() {
             <div className="text-center mb-12">
               <h2 className="font-serif text-3xl md:text-5xl font-bold">Nuestro Menú</h2>
               <p className="mt-4 text-muted-foreground">Autenticidad en cada categoría, frescura en cada plato.</p>
+              <div className="mt-6 inline-flex items-center gap-2 rounded-xl bg-primary/10 px-4 py-2 text-xs font-medium text-primary border border-primary/20">
+                <Info className="h-4 w-4" />
+                <span>Por favor, informe a su camarero sobre cualquier alergia alimentaria.</span>
+              </div>
             </div>
 
             <Tabs value={activeCat} onValueChange={(v) => setActiveCat(v as MenuCategory)} className="w-full">
-              <div className="flex justify-center mb-10 overflow-x-auto pb-4">
-                <TabsList className="bg-muted/50 p-1 rounded-full h-auto flex-nowrap">
+              <div className="flex justify-center mb-10 overflow-x-auto pb-4 scrollbar-hide">
+                <TabsList className="bg-muted/50 p-1 rounded-full h-auto flex-nowrap shrink-0">
                   {CATEGORIES.map((cat) => (
-                    <TabsTrigger key={cat} value={cat} className="rounded-full px-6 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground text-xs font-bold uppercase tracking-wider">
+                    <TabsTrigger key={cat} value={cat} className="rounded-full px-6 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap">
                       {cat}
                     </TabsTrigger>
                   ))}
                 </TabsList>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredMenu.map((item) => (
-                  <Card key={item.id} className="group p-4 flex gap-4 bg-background hover:shadow-lg transition-all border-none">
-                    <div className="h-24 w-24 shrink-0 rounded-2xl overflow-hidden bg-muted">
-                      {item.image ? (
-                        <img src={item.image} alt={item.name} className="h-full w-full object-cover group-hover:scale-110 transition-transform" />
-                      ) : (
-                        <div className="h-full w-full flex items-center justify-center text-[10px] uppercase font-bold text-muted-foreground opacity-50">Sabor</div>
+                  <Card key={item.id} className="group p-4 flex flex-col gap-4 bg-background hover:shadow-lg transition-all border shadow-sm rounded-2xl">
+                    <div className="flex justify-between items-start gap-4">
+                      <div className="min-w-0 flex-1">
+                        <div className="flex justify-between items-start gap-2 mb-1">
+                          <h3 className="font-bold text-sm md:text-base leading-tight">{item.name}</h3>
+                          <span className="font-bold text-primary whitespace-nowrap text-sm">{formatPrice(item.price)}</span>
+                        </div>
+                        <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3">{item.description}</p>
+                      </div>
+                      {item.image && (
+                        <div className="h-16 w-16 shrink-0 rounded-xl overflow-hidden bg-muted border">
+                          <img src={item.image} alt={item.name} className="h-full w-full object-cover group-hover:scale-110 transition-transform" />
+                        </div>
                       )}
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex justify-between items-start gap-4 mb-1">
-                        <h3 className="font-bold text-base truncate">{item.name}</h3>
-                        <span className="font-bold text-primary whitespace-nowrap">{formatPrice(item.price)}</span>
+                    {item.chefPick && (
+                      <div className="mt-auto pt-2 border-t border-dashed flex items-center gap-1.5 text-[10px] font-bold uppercase text-secondary">
+                        <Star className="h-3 w-3 fill-secondary" /> Especialidad del Chef
                       </div>
-                      <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">{item.description}</p>
-                      {item.chefPick && <div className="mt-2 inline-flex items-center gap-1.5 text-[10px] font-bold uppercase text-secondary"><Star className="h-3 w-3 fill-secondary" /> Especialidad</div>}
-                    </div>
+                    )}
                   </Card>
                 ))}
               </div>
@@ -282,7 +364,7 @@ export default function Home() {
           <motion.div ref={reservation.ref} initial="hidden" animate={reservation.inView ? "show" : "hidden"} variants={SECTION_FADE} className="mx-auto max-w-4xl grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="font-serif text-3xl md:text-5xl font-bold">Reserva una mesa</h2>
-              <p className="mt-6 text-background/70 leading-relaxed">Asegura tu lugar y disfruta de la mejor comida vietnamita en un ambiente inigualable.</p>
+              <p className="mt-6 text-background/70 leading-relaxed">Disfruta de la experiencia completa en nuestro local. Pho humeante y el mejor servicio.</p>
               <div className="mt-8 flex flex-col gap-4">
                 <div className="flex items-center gap-4">
                   <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30"><Phone className="h-5 w-5 text-primary" /></div>
@@ -309,10 +391,6 @@ export default function Home() {
                     <Input type="time" />
                   </div>
                 </div>
-                <div className="space-y-2">
-                  <Label>Comensales</Label>
-                  <Input type="number" defaultValue={2} />
-                </div>
                 <Button className="w-full h-12 text-base font-bold" size="lg">Confirmar Reserva</Button>
               </form>
             </Card>
@@ -324,7 +402,7 @@ export default function Home() {
         <div className="mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-center md:text-left">
             <div className="font-serif text-2xl font-bold">Pho Viet</div>
-            <p className="mt-2 text-sm text-muted-foreground">© 2026 Authentic Vietnamese Cuisine. Todos los derechos reservados.</p>
+            <p className="mt-2 text-sm text-muted-foreground">© 2026 Authentic Vietnamese Cuisine.</p>
           </div>
           <div className="flex gap-6 text-sm font-bold uppercase tracking-widest">
             <a href="#menu" className="hover:text-primary">Menú</a>
