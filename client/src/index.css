@@ -66,27 +66,27 @@
      Grass Green: #3A9D23
      Charcoal Black: #1C1C1C */
 
-  --background: 36 58% 94%;
-  --foreground: 0 0% 11%;
+  --background: 44 45% 94%;
+  --foreground: 0 0% 18%;
 
-  --card: 36 58% 96%;
-  --card-foreground: 0 0% 11%;
+  --card: 44 45% 94%;
+  --card-foreground: 0 0% 18%;
   --card-border: 0 0% 10% / 0.10;
 
-  --popover: 36 58% 96%;
-  --popover-foreground: 0 0% 11%;
+  --popover: 44 45% 94%;
+  --popover-foreground: 0 0% 18%;
 
-  --primary: 0 100% 27%;
-  --primary-foreground: 36 58% 96%;
-  --primary-border: 0 100% 22% / 0.55;
+  --primary: 0 71% 37%;
+  --primary-foreground: 0 0% 100%;
+  --primary-border: 0 71% 30% / 0.55;
 
   --secondary: 43 74% 49%;
-  --secondary-foreground: 0 0% 11%;
+  --secondary-foreground: 0 0% 100%;
   --secondary-border: 43 74% 38% / 0.50;
 
-  --accent: 130 64% 38%;
-  --accent-foreground: 36 58% 96%;
-  --accent-border: 130 64% 28% / 0.55;
+  --accent: 109 64% 38%;
+  --accent-foreground: 0 0% 100%;
+  --accent-border: 109 64% 28% / 0.55;
 
   --muted: 36 26% 90%;
   --muted-foreground: 0 0% 34%;
