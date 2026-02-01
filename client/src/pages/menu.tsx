@@ -185,9 +185,7 @@ export default function MenuPage() {
       <header className="sticky top-0 z-40 border-b bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="grid h-10 w-10 place-items-center rounded-2xl bg-primary text-primary-foreground shadow-lg transition-transform group-hover:scale-110">
-              <ChevronLeft className="h-6 w-6" />
-            </div>
+            <img src="/logo-pho.jpg" alt="Pho Viet Logo" className="h-10 w-10 object-contain rounded-lg bg-white shadow-lg transition-transform group-hover:scale-110" />
             <span className="font-serif text-xl font-bold">Volver</span>
           </Link>
           <div className="text-right">

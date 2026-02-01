@@ -52,7 +52,7 @@ export default function Home() {
       <header className="sticky top-0 z-40 border-b bg-background/72 backdrop-blur shadow-sm">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
           <Link href="/" className="flex items-center gap-2">
-            <div className="grid h-9 w-9 place-items-center rounded-xl border bg-card shadow-sm font-serif font-bold">PV</div>
+            <img src="/logo-pho.jpg" alt="Pho Viet Logo" className="h-10 w-10 object-contain rounded-lg border bg-white shadow-sm" />
             <div className="leading-tight">
               <div className="font-serif text-sm font-bold tracking-tight">Pho Viet</div>
               <div className="text-[10px] text-muted-foreground uppercase tracking-widest">Authentic</div>
