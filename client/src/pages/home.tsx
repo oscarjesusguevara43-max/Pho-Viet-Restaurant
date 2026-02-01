@@ -19,6 +19,20 @@ import menuBun from "@/assets/images/menu-bun.png";
 import menuRice from "@/assets/images/menu-rice.png";
 import menuSpringrolls from "@/assets/images/menu-springrolls.png";
 
+// New Gallery Images
+import imgGoiCuon from "@/assets/images/gallery/goi-cuon.jpg";
+import imgChaGio from "@/assets/images/gallery/cha-gio.jpg";
+import imgTomRang from "@/assets/images/gallery/tom-rang.jpg";
+import imgBunThit from "@/assets/images/gallery/bun-thit-nuong.jpg";
+import imgComSuon from "@/assets/images/gallery/com-suon.jpg";
+import imgMiXao from "@/assets/images/gallery/mi-xao.jpg";
+import imgPhoDacBiet from "@/assets/images/gallery/pho-dac-biet.jpg";
+import imgTomChien from "@/assets/images/gallery/tom-chien.jpg";
+import imgPhoTai from "@/assets/images/gallery/pho-tai.jpg";
+import imgComGa from "@/assets/images/gallery/com-ga.jpg";
+import imgHuTieu from "@/assets/images/gallery/hu-tieu.jpg";
+import imgInterior from "@/assets/images/gallery/interior-coffee.jpg";
+
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
@@ -41,7 +55,20 @@ function useSectionInView() {
 
 export default function Home() {
   const [lightbox, setLightbox] = useState<string | null>(null);
-  const gallery = [heroPho, menuSpringrolls, galleryInterior, chefTeam, menuBun, menuRice];
+  const gallery = [
+    imgPhoDacBiet,
+    imgGoiCuon,
+    imgComSuon,
+    imgMiXao,
+    imgBunThit,
+    imgTomRang,
+    imgPhoTai,
+    imgComGa,
+    imgChaGio,
+    imgHuTieu,
+    imgTomChien,
+    imgInterior
+  ];
 
   const hero = useSectionInView();
   const story = useSectionInView();
