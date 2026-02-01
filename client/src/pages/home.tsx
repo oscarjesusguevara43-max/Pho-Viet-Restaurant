@@ -73,7 +73,6 @@ export default function Home() {
         <section id="top" className="pv-hero-grid py-12 md:py-20 px-4 md:px-6">
           <motion.div ref={hero.ref} initial="hidden" animate={hero.inView ? "show" : "hidden"} variants={SECTION_FADE} className="mx-auto max-w-6xl grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 rounded-full border bg-background/50 px-3 py-1 text-[10px] uppercase tracking-widest font-bold text-accent">Desde 2014</div>
               <h1 className="mt-6 font-serif text-4xl md:text-6xl font-bold leading-[1.1]">Sabores que conquistan desde el primer sorbo en Pho Viet Restaurant.</h1>
               <p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-lg">Pho Viet Restaurant trae el alma de Vietnam a tu mesa con caldos de 12 horas y los ingredientes más frescos.</p>
               <div className="mt-8 flex flex-wrap gap-4">
