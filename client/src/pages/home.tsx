@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 
 import heroPho from "@/assets/images/hero-pho.png";
+import heroBgCustom from "@/assets/images/hero-bg-custom.jpg";
 import chefTeam from "@/assets/images/chef-team.png";
 import galleryInterior from "@/assets/images/gallery-interior.png";
 import menuBun from "@/assets/images/menu-bun.png";
@@ -70,8 +71,16 @@ export default function Home() {
       </header>
 
       <main id="main">
-        <section id="top" className="pv-hero-grid py-12 md:py-20 px-4 md:px-6">
-          <motion.div ref={hero.ref} initial="hidden" animate={hero.inView ? "show" : "hidden"} variants={SECTION_FADE} className="mx-auto max-w-6xl grid md:grid-cols-2 gap-12 items-center">
+        <section id="top" className="relative py-12 md:py-24 px-4 md:px-6 overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <img 
+              src={heroBgCustom} 
+              alt="Background" 
+              className="w-full h-full object-cover opacity-20"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
+          </div>
+          <motion.div ref={hero.ref} initial="hidden" animate={hero.inView ? "show" : "hidden"} variants={SECTION_FADE} className="relative z-10 mx-auto max-w-6xl grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="mt-6 font-serif text-4xl md:text-6xl font-bold leading-[1.1]">Sabores que conquistan desde el primer sorbo en Pho Viet Restaurant.</h1>
               <p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-lg">Pho Viet Restaurant trae el alma de Vietnam a tu mesa con caldos de 12 horas y los ingredientes más frescos.</p>
