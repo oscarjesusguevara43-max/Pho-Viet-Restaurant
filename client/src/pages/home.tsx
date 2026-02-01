@@ -271,7 +271,7 @@ export default function Home() {
             </Card>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="mx-auto max-w-4xl mt-12 overflow-hidden rounded-[2rem] border-4 border-background shadow-2xl h-[400px]">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="mx-auto max-w-6xl mt-12 overflow-hidden rounded-[2rem] border-4 border-background shadow-2xl h-[450px]">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3080.354228956973!2d-77.7554!3d39.6433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c99307a68e8e77%3A0x7d9f7d4c8e8e8e77!2s1441%20Wesel%20Blvd%2C%20Hagerstown%2C%20MD%2021740!5e0!3m2!1ses!2sus!4v1706800000000!5m2!1ses!2sus"
               width="100%"
