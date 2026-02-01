@@ -181,12 +181,13 @@ export default function Home() {
         <div className="mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-center md:text-left">
             <div className="font-serif text-2xl font-bold">Pho Viet</div>
-            <p className="mt-2 text-sm text-muted-foreground">© 2026 Authentic Vietnamese Cuisine.</p>
+            <p className="mt-2 text-sm text-muted-foreground">Copyright © 2026 Pho Viet Restaurant - Todos los derechos reservados.</p>
+            <p className="mt-1 text-xs text-primary font-bold uppercase tracking-wider">Gracias por su visita</p>
           </div>
           <div className="flex gap-6 text-sm font-bold uppercase tracking-widest">
             <Link href="/menu" className="hover:text-primary">Menú</Link>
             <a href="#gallery" className="hover:text-primary">Galería</a>
-            <a href="#reservations" className="hover:text-primary">Reservas</a>
+            <a href="#reservations" className="hover:text-primary">Contacto</a>
           </div>
         </div>
       </footer>
