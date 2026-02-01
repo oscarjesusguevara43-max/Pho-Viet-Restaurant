@@ -52,9 +52,9 @@ export default function Home() {
       <header className="sticky top-0 z-40 border-b bg-background/72 backdrop-blur shadow-sm">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
           <Link href="/" className="flex items-center gap-2">
-            <img src="/logo-pho.jpg" alt="Pho Viet Logo" className="h-10 w-10 object-contain rounded-lg border bg-white shadow-sm" />
+            <img src="/logo-pho.jpg" alt="Pho Viet Restaurant Logo" className="h-10 w-10 object-contain rounded-lg border bg-white shadow-sm" />
             <div className="leading-tight">
-              <div className="font-serif text-sm font-bold tracking-tight">Pho Viet</div>
+              <div className="font-serif text-sm font-bold tracking-tight">Pho Viet Restaurant</div>
               <div className="text-[10px] text-muted-foreground uppercase tracking-widest">Authentic</div>
             </div>
           </Link>
@@ -75,8 +75,8 @@ export default function Home() {
           <motion.div ref={hero.ref} initial="hidden" animate={hero.inView ? "show" : "hidden"} variants={SECTION_FADE} className="mx-auto max-w-6xl grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border bg-background/50 px-3 py-1 text-[10px] uppercase tracking-widest font-bold text-accent">Desde 2014</div>
-              <h1 className="mt-6 font-serif text-4xl md:text-6xl font-bold leading-[1.1]">Sabores que conquistan desde el primer sorbo.</h1>
-              <p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-lg">Pho Viet trae el alma de Vietnam a tu mesa con caldos de 12 horas y los ingredientes más frescos.</p>
+              <h1 className="mt-6 font-serif text-4xl md:text-6xl font-bold leading-[1.1]">Sabores que conquistan desde el primer sorbo en Pho Viet Restaurant.</h1>
+              <p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-lg">Pho Viet Restaurant trae el alma de Vietnam a tu mesa con caldos de 12 horas y los ingredientes más frescos.</p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Button size="lg" asChild><Link href="/menu">Ver Menú Completo</Link></Button>
                 <Button variant="secondary" size="lg" asChild><a href="#reservations">Reservar Mesa</a></Button>
@@ -107,7 +107,7 @@ export default function Home() {
 
         <section id="gallery" className="py-20 px-4 md:px-6">
           <motion.div ref={gallerySection.ref} initial="hidden" animate={gallerySection.inView ? "show" : "hidden"} variants={SECTION_FADE} className="mx-auto max-w-6xl">
-            <h2 className="font-serif text-3xl md:text-5xl font-bold text-center mb-12">Galería Visual</h2>
+            <h2 className="font-serif text-3xl md:text-5xl font-bold text-center mb-12">Galería de Pho Viet Restaurant</h2>
             <div className="columns-2 md:columns-3 gap-6">
               {gallery.map((src, i) => (
                 <button key={i} onClick={() => setLightbox(src)} className="w-full mb-6 rounded-3xl overflow-hidden border shadow-sm hover:shadow-xl transition-all group">
@@ -180,7 +180,7 @@ export default function Home() {
       <footer className="py-12 px-4 md:px-6 border-t bg-card/50">
         <div className="mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-center md:text-left">
-            <div className="font-serif text-2xl font-bold">Pho Viet</div>
+            <div className="font-serif text-2xl font-bold">Pho Viet Restaurant</div>
             <p className="mt-2 text-sm text-muted-foreground">Copyright © 2026 Pho Viet Restaurant - Todos los derechos reservados.</p>
             <p className="mt-1 text-xs text-primary font-bold uppercase tracking-wider">Gracias por su visita</p>
           </div>
