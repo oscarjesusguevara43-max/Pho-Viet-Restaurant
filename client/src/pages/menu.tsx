@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { Link } from "wouter";
-import { ChevronLeft, Info, Star } from "lucide-react";
+import { ChevronLeft, Info, Star, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -257,6 +257,18 @@ export default function MenuPage() {
             <p className="mt-2 text-primary font-bold">Gracias por su visita</p>
           </div>
       </footer>
+
+      {/* Botón flotante de llamar */}
+      <a
+        href="tel:+13017455030"
+        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-2xl transition-all hover:scale-110 active:scale-95 animate-bounce md:h-16 md:w-16"
+        aria-label="Llamar a Pho Viet Restaurant"
+      >
+        <Phone className="h-6 w-6 md:h-7 md:w-7" />
+        <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-destructive text-[10px] font-bold text-white ring-2 ring-background">
+          1
+        </span>
+      </a>
     </div>
   );
 }
