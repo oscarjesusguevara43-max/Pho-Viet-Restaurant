@@ -81,17 +81,17 @@ export default function Home() {
           <Link href="/" className="flex items-center gap-2">
             <img src="/logo-pho.jpg" alt="Pho Viet Restaurant Logo" className="h-10 w-10 object-contain rounded-lg border bg-white shadow-sm" />
             <div className="leading-tight">
-              <div className="font-serif text-sm font-bold tracking-tight">Pho Viet Restaurant</div>
+              <div className="font-serif text-sm font-bold tracking-tight uppercase">Pho Viet Restaurant</div>
             </div>
           </Link>
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-            <Link href="/menu" className="hover:text-primary transition-colors">Menú</Link>
-            <a href="#gallery" className="hover:text-primary transition-colors">Galería</a>
-            <a href="#reservations" className="hover:text-primary transition-colors">Reservas</a>
+            <Link href="/menu" className="hover:text-primary transition-colors">Menu</Link>
+            <a href="#gallery" className="hover:text-primary transition-colors">Gallery</a>
+            <a href="#reservations" className="hover:text-primary transition-colors">Reservations</a>
           </nav>
           <div className="flex items-center gap-3">
-            <Button variant="outline" size="sm" asChild className="hidden sm:inline-flex"><a href="tel:+15551234567">Llamar</a></Button>
-            <Button size="sm" asChild><Link href="/menu">Ver Menú</Link></Button>
+            <Button variant="outline" size="sm" asChild className="hidden sm:inline-flex"><a href="tel:+13017455030">Call</a></Button>
+            <Button size="sm" asChild><Link href="/menu">View Menu</Link></Button>
           </div>
         </div>
       </header>
@@ -108,11 +108,11 @@ export default function Home() {
           </div>
           <motion.div ref={hero.ref} initial="hidden" animate={hero.inView ? "show" : "hidden"} variants={SECTION_FADE} className="relative z-10 mx-auto max-w-6xl grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="mt-6 font-serif text-4xl md:text-6xl font-bold leading-[1.1]">Bienvenido a Pho Viet Restaurant — donde cada plato te abraza con sabor.</h1>
-              <p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-lg">Aquí cada plato se prepara con paciencia y cariño. Nuestros caldos cocidos por horas, las hierbas frescas y los ingredientes auténticos no son solo comida: son momentos para compartir, son recuerdos que se crean alrededor de la mesa. Ven, relájate y disfruta de sabores que te harán sentir en casa.</p>
+              <h1 className="mt-6 font-serif text-4xl md:text-6xl font-bold leading-[1.1]">Welcome to Pho Viet Restaurant — where every dish embraces you with flavor.</h1>
+              <p className="mt-6 text-lg text-muted-foreground leading-relaxed max-w-lg">Here, every dish is prepared with patience and love. Our broths simmered for hours, fresh herbs, and authentic ingredients are not just food: they are moments to share, memories created around the table. Come, relax, and enjoy flavors that will make you feel at home.</p>
               <div className="mt-8 flex flex-wrap gap-4">
-                <Button size="lg" asChild><Link href="/menu">Ver Menú Completo</Link></Button>
-                <Button variant="secondary" size="lg" asChild><a href="#reservations">Reservar Mesa</a></Button>
+                <Button size="lg" asChild><Link href="/menu">View Full Menu</Link></Button>
+                <Button variant="secondary" size="lg" asChild><a href="#reservations">Book a Table</a></Button>
               </div>
             </div>
             <div className="relative group">
@@ -127,13 +127,13 @@ export default function Home() {
             <div className="inline-flex h-20 w-20 items-center justify-center rounded-3xl bg-primary/10 text-primary mb-8">
               <BookOpen className="h-10 w-10" />
             </div>
-            <h2 className="font-serif text-3xl md:text-5xl font-bold mb-6">Explora nuestra carta</h2>
+            <h2 className="font-serif text-3xl md:text-5xl font-bold mb-6">Explore Our Menu</h2>
             <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-              Hemos preparado una sección especial donde podrás consultar todos nuestros platos,
-              especialidades y extras sin distracciones.
+              We have prepared a special section where you can browse all our dishes,
+              specialties, and extras without distractions.
             </p>
             <Button size="lg" className="h-14 px-10 text-lg rounded-2xl shadow-xl" asChild>
-              <Link href="/menu">Abrir Menú Completo</Link>
+              <Link href="/menu">Open Full Menu</Link>
             </Button>
           </div>
         </section>
@@ -141,11 +141,11 @@ export default function Home() {
         <section id="reviews" className="py-20 px-4 md:px-6 bg-background">
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={SECTION_FADE} className="mx-auto max-w-6xl">
             <div className="text-center mb-16">
-              <h2 className="font-serif text-3xl md:text-5xl font-bold">Lo que dicen nuestros clientes</h2>
+              <h2 className="font-serif text-3xl md:text-5xl font-bold">What Our Customers Say</h2>
               <div className="mt-4 flex justify-center gap-1 text-secondary">
                 {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 fill-current" />)}
               </div>
-              <p className="mt-4 text-muted-foreground font-medium">98% recomendado (48 reseñas)</p>
+              <p className="mt-4 text-muted-foreground font-medium">98% recommended (48 reviews)</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -238,7 +238,7 @@ export default function Home() {
 
         <section id="gallery" className="py-20 px-4 md:px-6">
           <motion.div ref={gallerySection.ref} initial="hidden" animate={gallerySection.inView ? "show" : "hidden"} variants={SECTION_FADE} className="mx-auto max-w-6xl">
-            <h2 className="font-serif text-3xl md:text-5xl font-bold text-center mb-12">Galería de Pho Viet Restaurant</h2>
+            <h2 className="font-serif text-3xl md:text-5xl font-bold text-center mb-12">Pho Viet Restaurant Gallery</h2>
             <div className="columns-2 md:columns-3 gap-6">
               {gallery.map((src, i) => (
                 <button key={i} onClick={() => setLightbox(src)} className="w-full mb-6 rounded-3xl overflow-hidden border shadow-sm hover:shadow-xl transition-all group">
@@ -252,17 +252,17 @@ export default function Home() {
         <section id="reservations" className="py-20 px-4 md:px-6 bg-foreground text-background">
           <motion.div ref={reservation.ref} initial="hidden" animate={reservation.inView ? "show" : "hidden"} variants={SECTION_FADE} className="mx-auto max-w-4xl grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="font-serif text-3xl md:text-5xl font-bold">Contáctenos</h2>
-              <p className="mt-6 text-background/70 leading-relaxed font-bold italic">¡Mejor aún, visítenos en persona!</p>
-              <p className="mt-2 text-background/60 leading-relaxed text-sm">Amamos a nuestros clientes, así que no dudes en visitarnos durante el horario comercial normal.</p>
+              <h2 className="font-serif text-3xl md:text-5xl font-bold">Contact Us</h2>
+              <p className="mt-6 text-background/70 leading-relaxed font-bold italic">Better yet, see us in person!</p>
+              <p className="mt-2 text-background/60 leading-relaxed text-sm">We love our customers, so feel free to visit during normal business hours.</p>
               
               <div className="mt-8 space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="h-10 w-10 rounded-xl bg-primary/20 flex items-center justify-center border border-primary/30 shrink-0"><ExternalLink className="h-5 w-5 text-primary" /></div>
                   <div>
-                    <div className="text-xs uppercase font-bold tracking-widest text-background/50 mb-1">Dirección</div>
+                    <div className="text-xs uppercase font-bold tracking-widest text-background/50 mb-1">Address</div>
                     <a href="https://maps.google.com/?q=1441+Wesel+Blvd,+Hagerstown,+MD+21740" target="_blank" rel="noreferrer" className="text-base font-medium hover:text-primary transition-colors">
-                      1441 Wesel Blvd, Hagerstown, MD 21740, Estados Unidos
+                      1441 Wesel Blvd, Hagerstown, MD 21740, USA
                     </a>
                   </div>
                 </div>
@@ -270,7 +270,7 @@ export default function Home() {
                 <div className="flex items-center gap-4">
                   <div className="h-10 w-10 rounded-xl bg-primary/20 flex items-center justify-center border border-primary/30 shrink-0"><Phone className="h-5 w-5 text-primary" /></div>
                   <div>
-                    <div className="text-xs uppercase font-bold tracking-widest text-background/50 mb-1">Llámanos</div>
+                    <div className="text-xs uppercase font-bold tracking-widest text-background/50 mb-1">Call Us</div>
                     <a href="tel:+13017455030" className="text-xl font-bold hover:text-primary transition-colors">(301) 745-5030</a>
                   </div>
                 </div>
@@ -278,9 +278,9 @@ export default function Home() {
                 <div className="flex items-start gap-4">
                   <div className="h-10 w-10 rounded-xl bg-primary/20 flex items-center justify-center border border-primary/30 shrink-0"><CalendarDays className="h-5 w-5 text-primary" /></div>
                   <div>
-                    <div className="text-xs uppercase font-bold tracking-widest text-background/50 mb-1">Horas</div>
-                    <p className="text-base font-medium">De 11 a 20 horas de domingo a lunes.</p>
-                    <p className="text-sm text-secondary font-bold mt-1">Cerrado los martes.</p>
+                    <div className="text-xs uppercase font-bold tracking-widest text-background/50 mb-1">Hours</div>
+                    <p className="text-base font-medium">11:00 AM to 8:00 PM Sunday to Monday.</p>
+                    <p className="text-sm text-secondary font-bold mt-1">Closed on Tuesdays.</p>
                   </div>
                 </div>
               </div>
@@ -288,20 +288,20 @@ export default function Home() {
             <Card className="p-8 text-foreground bg-background border-none shadow-2xl rounded-[2rem]">
               <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                 <div className="space-y-2">
-                  <Label>Nombre</Label>
-                  <Input placeholder="Tu nombre" />
+                  <Label>Name</Label>
+                  <Input placeholder="Your Name" />
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label>Fecha</Label>
+                    <Label>Date</Label>
                     <Input type="date" />
                   </div>
                   <div className="space-y-2">
-                    <Label>Hora</Label>
+                    <Label>Time</Label>
                     <Input type="time" />
                   </div>
                 </div>
-                <Button className="w-full h-12 text-base font-bold" size="lg">Confirmar Reserva</Button>
+                <Button className="w-full h-12 text-base font-bold" size="lg">Confirm Reservation</Button>
               </form>
             </Card>
           </motion.div>
@@ -315,7 +315,7 @@ export default function Home() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Ubicación de Pho Viet Restaurant"
+              title="Pho Viet Restaurant Location"
             ></iframe>
           </motion.div>
         </section>
@@ -325,13 +325,13 @@ export default function Home() {
         <div className="mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="text-center md:text-left">
             <div className="font-serif text-2xl font-bold">Pho Viet Restaurant</div>
-            <p className="mt-2 text-sm text-muted-foreground">Copyright © 2026 Pho Viet Restaurant - Todos los derechos reservados.</p>
-            <p className="mt-1 text-xs text-primary font-bold uppercase tracking-wider">Gracias por su visita</p>
+            <p className="mt-2 text-sm text-muted-foreground">Copyright © 2026 Pho Viet Restaurant - All rights reserved.</p>
+            <p className="mt-1 text-xs text-primary font-bold uppercase tracking-wider">Thank you for visiting</p>
           </div>
           <div className="flex gap-6 text-sm font-bold uppercase tracking-widest">
-            <Link href="/menu" className="hover:text-primary">Menú</Link>
-            <a href="#gallery" className="hover:text-primary">Galería</a>
-            <a href="#reservations" className="hover:text-primary">Contacto</a>
+            <Link href="/menu" className="hover:text-primary">Menu</Link>
+            <a href="#gallery" className="hover:text-primary">Gallery</a>
+            <a href="#reservations" className="hover:text-primary">Contact</a>
           </div>
         </div>
       </footer>
@@ -340,7 +340,7 @@ export default function Home() {
       <a
         href="tel:+13017455030"
         className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-2xl transition-all hover:scale-110 active:scale-95 animate-bounce md:h-16 md:w-16"
-        aria-label="Llamar a Pho Viet Restaurant"
+        aria-label="Call Pho Viet Restaurant"
       >
         <Phone className="h-6 w-6 md:h-7 md:w-7" />
         <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-destructive text-[10px] font-bold text-white ring-2 ring-background">

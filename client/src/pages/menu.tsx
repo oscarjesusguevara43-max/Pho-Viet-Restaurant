@@ -6,16 +6,16 @@ import { Card } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 type MenuCategory =
-  | "Aperitivos"
-  | "Sopa"
+  | "Appetizers"
+  | "Soup"
   | "Pho"
-  | "Fideos de Arroz"
-  | "Fideos de Huevo"
-  | "Arroz"
-  | "Bún (Ensalada)"
-  | "Arroz Frito"
-  | "Vegetariano"
-  | "Bebidas"
+  | "Rice Noodles"
+  | "Egg Noodles"
+  | "Rice Platters"
+  | "Bún (Salad)"
+  | "Fried Rice"
+  | "Vegetarian"
+  | "Drinks"
   | "Extras";
 
 type MenuItem = {
@@ -27,157 +27,157 @@ type MenuItem = {
 };
 
 const MENU_DATA: MenuItem[] = [
-  // Khai Vị - Aperitivos
-  { id: "a1", category: "Aperitivos", name: "A1 Chả Giò (2)", description: "Rollitos de huevo de cerdo crujientes vietnamitas", price: 6.95 },
-  { id: "a2", category: "Aperitivos", name: "A2 Chả Giò Tôm (4)", description: "Rollitos de huevo con camarones crujientes", price: 7.95 },
-  { id: "a3", category: "Aperitivos", name: "A3 Gỏi cuốn (2)", description: "Rollitos de primavera de camarones frescos y cerdo", price: 6.95 },
-  { id: "a4", category: "Aperitivos", name: "A4 Tôm tàu hủ Ky", description: "Camarones envueltos en tofu", price: 7.95 },
-  { id: "a5", category: "Aperitivos", name: "A5 Cánh Gà Chiên (6)", description: "Alitas de pollo fritas", price: 8.95 },
-  { id: "a6", category: "Aperitivos", name: "A6 Nem nướng (2 brochetas)", description: "Albóndigas de cerdo a la parrilla", price: 7.95 },
-  { id: "a7", category: "Aperitivos", name: "A7 Pot Stickers (6)", description: "Pollo o Cerdo. A) Al vapor B) Frito", price: 6.95 },
+  // Khai Vị - Appetizers
+  { id: "a1", category: "Appetizers", name: "A1 Chả Giò (2)", description: "Crispy Vietnamese pork egg rolls", price: 6.95 },
+  { id: "a2", category: "Appetizers", name: "A2 Chả Giò Tôm (4)", description: "Crispy shrimp egg rolls", price: 7.95 },
+  { id: "a3", category: "Appetizers", name: "A3 Gỏi cuốn (2)", description: "Fresh shrimp and pork spring rolls", price: 6.95 },
+  { id: "a4", category: "Appetizers", name: "A4 Tôm tàu hủ Ky", description: "Shrimp wrapped in bean curd", price: 7.95 },
+  { id: "a5", category: "Appetizers", name: "A5 Cánh Gà Chiên (6)", description: "Fried chicken wings", price: 8.95 },
+  { id: "a6", category: "Appetizers", name: "A6 Nem nướng (2 skewers)", description: "Grilled pork meatballs", price: 7.95 },
+  { id: "a7", category: "Appetizers", name: "A7 Pot Stickers (6)", description: "Chicken or Pork. A) Steamed B) Fried", price: 6.95 },
 
-  // Súp - Sopa
-  { id: "s1", category: "Sopa", name: "S1 Súp Hoành thánh", description: "Sopa wonton", price: 5.95 },
-  { id: "s2", category: "Sopa", name: "S2 Súp bò viên", description: "Sopa de albóndigas de carne de res", price: 5.95 },
-  { id: "s3", category: "Sopa", name: "S3 Súp Gà", description: "Sopa de pollo desmenuzado", price: 5.95 },
+  // Súp - Soup
+  { id: "s1", category: "Soup", name: "S1 Súp Hoành thánh", description: "Wonton soup", price: 5.95 },
+  { id: "s2", category: "Soup", name: "S2 Súp bò viên", description: "Beef meatball soup", price: 5.95 },
+  { id: "s3", category: "Soup", name: "S3 Súp Gà", description: "Shredded chicken soup", price: 5.95 },
 
   // Phở - Pho
-  { id: "p1", category: "Pho", name: "P1 Phở Đặc Biệt", description: "Pho especial con carne de res poco hecha, filete de falda bien hecho, tendón, callos y albóndigas de res. Servido con brotes de soja, jalapeño y lima.", price: "L $14.95 / XL $15.95" },
-  { id: "p2", category: "Pho", name: "P2 Phở Tái", description: "Pho de carne poco hecha", price: "L $13.95 / XL $14.95" },
-  { id: "p3", category: "Pho", name: "P3 Phở tái bò viên", description: "Pho de carne de res poco hecha y albóndigas de res", price: "L $13.95 / XL $14.95" },
-  { id: "p4", category: "Pho", name: "P4 Phở Tái Nạm", description: "Pho de carne de res y pecho poco hecho", price: "L $13.95 / XL $14.95" },
-  { id: "p5", category: "Pho", name: "P5 Phở Bò Viên", description: "Pho de albóndigas de ternera", price: "L $13.95 / XL $14.95" },
-  { id: "p6", category: "Pho", name: "P6 Phở Gà", description: "Pho de pollo", price: "L $13.95 / XL $14.95" },
-  { id: "p7", category: "Pho", name: "P7 Phở Đồ biển", description: "Pho de mariscos", price: "L $13.95 / XL $14.95" },
-  { id: "p8", category: "Pho", name: "P8 Phở nạm", description: "Pho de pechuga", price: "L $13.95 / XL $14.95" },
-  { id: "p9", category: "Pho", name: "P9 Phở đặc biệt thái lan", description: "Pho especial al estilo tailandés con carne de res poco hecha, filete de falda bien cocido, tendón, callos y albóndigas.", price: "L $14.95 / XL $15.95" },
-  { id: "p10", category: "Pho", name: "P10 PhỞ TÔM", description: "Pho de camarones", price: "L $13.95 / XL $14.95" },
+  { id: "p1", category: "Pho", name: "P1 Phở Đặc Biệt", description: "Special Pho with rare beef, well-done flank, tendon, tripe, and beef meatballs. Served with bean sprouts, jalapeño, and lime.", price: "L $14.95 / XL $15.95" },
+  { id: "p2", category: "Pho", name: "P2 Phở Tái", description: "Rare beef Pho", price: "L $13.95 / XL $14.95" },
+  { id: "p3", category: "Pho", name: "P3 Phở tái bò viên", description: "Rare beef and beef meatball Pho", price: "L $13.95 / XL $14.95" },
+  { id: "p4", category: "Pho", name: "P4 Phở Tái Nạm", description: "Rare beef and brisket Pho", price: "L $13.95 / XL $14.95" },
+  { id: "p5", category: "Pho", name: "P5 Phở Bò Viên", description: "Beef meatball Pho", price: "L $13.95 / XL $14.95" },
+  { id: "p6", category: "Pho", name: "P6 Phở Gà", description: "Chicken Pho", price: "L $13.95 / XL $14.95" },
+  { id: "p7", category: "Pho", name: "P7 Phở Đồ biển", description: "Seafood Pho", price: "L $13.95 / XL $14.95" },
+  { id: "p8", category: "Pho", name: "P8 Phở nạm", description: "Brisket Pho", price: "L $13.95 / XL $14.95" },
+  { id: "p9", category: "Pho", name: "P9 Phở đặc biệt thái lan", description: "Thai style special Pho with rare beef, well-done flank, tendon, tripe, and meatballs.", price: "L $14.95 / XL $15.95" },
+  { id: "p10", category: "Pho", name: "P10 PhỞ TÔM", description: "Shrimp Pho", price: "L $13.95 / XL $14.95" },
 
-  // Hủ Tiếu - Fideos de Arroz
-  { id: "h1", category: "Fideos de Arroz", name: "H1 Hủ tiếu thập cẩm", description: "Sopa combinada de fideos de arroz. Caldo de pollo.", price: 14.95 },
-  { id: "h2", category: "Fideos de Arroz", name: "H2 Hủ tiếu đồ biển", description: "Sopa de fideos de arroz con mariscos", price: 13.95 },
-  { id: "h3", category: "Fideos de Arroz", name: "H3 Hủ tiếu tôm", description: "Sopa de fideos de arroz con camarones", price: 12.95 },
-  { id: "h4", category: "Fideos de Arroz", name: "H4 Hủ tiếu tôm viên, cá viên", description: "Sopa de fideos de arroz con albóndigas de camarones y pescado", price: 12.95 },
-  { id: "h5", category: "Fideos de Arroz", name: "H5 Hủ tiếu gà", description: "Sopa de fideos de arroz con pollo desmenuzado", price: 12.95 },
-  { id: "h6", category: "Fideos de Arroz", name: "H6 Hủ tiếu xá xíu", description: "Sopa de fideos de arroz con cerdo a la barbacoa", price: 12.95 },
+  // Hủ Tiếu - Rice Noodles
+  { id: "h1", category: "Rice Noodles", name: "H1 Hủ tiếu thập cẩm", description: "Rice noodle combination soup. Chicken broth.", price: 14.95 },
+  { id: "h2", category: "Rice Noodles", name: "H2 Hủ tiếu đồ biển", description: "Seafood rice noodle soup", price: 13.95 },
+  { id: "h3", category: "Rice Noodles", name: "H3 Hủ tiếu tôm", description: "Shrimp rice noodle soup", price: 12.95 },
+  { id: "h4", category: "Rice Noodles", name: "H4 Hủ tiếu tôm viên, cá viên", description: "Shrimp and fish ball rice noodle soup", price: 12.95 },
+  { id: "h5", category: "Rice Noodles", name: "H5 Hủ tiếu gà", description: "Shredded chicken rice noodle soup", price: 12.95 },
+  { id: "h6", category: "Rice Noodles", name: "H6 Hủ tiếu xá xíu", description: "BBQ pork rice noodle soup", price: 12.95 },
 
-  // Mì - Fideos de Huevo
-  { id: "m1", category: "Fideos de Huevo", name: "M1 Mì thập cẩm", description: "Sopa combinada de fideos con huevo amarillos. Caldo de pollo.", price: 14.95 },
-  { id: "m2", category: "Fideos de Huevo", name: "M2 Mì đồ biển", description: "Sopa de fideos de huevo con mariscos", price: 13.95 },
-  { id: "m3", category: "Fideos de Huevo", name: "M3 Mi tôm", description: "Sopa de fideos con huevo y camarones", price: 13.95 },
-  { id: "m4", category: "Fideos de Huevo", name: "M4 Mì tôm viên, cá viên", description: "Albóndigas de camarones, albóndigas de pescado, sopa de fideos con huevo", price: 13.95 },
-  { id: "m5", category: "Fideos de Huevo", name: "M5 Mi gá", description: "Sopa de fideos con huevo y pollo desmenuzado", price: 13.95 },
-  { id: "m6", category: "Fideos de Huevo", name: "M6 Mì hoành thánh", description: "Sopa de fideos con huevo y wonton", price: 13.95 },
-  { id: "m7", category: "Fideos de Huevo", name: "M7 Mì xá xíu", description: "Sopa de fideos con huevo y cerdo a la barbacoa", price: 13.95 },
-  { id: "m8", category: "Fideos de Huevo", name: "Mì xào giòn thập cẩm", description: "Fideos de huevo combinados salteados (sin sopa)", price: 15.95 },
-  { id: "m9", category: "Fideos de Huevo", name: "M9 Mì xào giòn đồbiển", description: "Fideos de huevo fritos con mariscos (sin sopa)", price: 15.95 },
-  { id: "m10", category: "Fideos de Huevo", name: "M10 Mì xào giòn tôm, xá xíu", description: "Fideos de huevo fritos con camarones y cerdo a la barbacoa", price: 15.95 },
-  { id: "m11", category: "Fideos de Huevo", name: "M11 Mì xào giòn tôm", description: "Fideos de huevo fritos con camarones", price: 15.95 },
+  // Mì - Egg Noodles
+  { id: "m1", category: "Egg Noodles", name: "M1 Mì thập cẩm", description: "Combination yellow egg noodle soup. Chicken broth.", price: 14.95 },
+  { id: "m2", category: "Egg Noodles", name: "M2 Mì đồ biển", description: "Seafood egg noodle soup", price: 13.95 },
+  { id: "m3", category: "Egg Noodles", name: "M3 Mi tôm", description: "Shrimp egg noodle soup", price: 13.95 },
+  { id: "m4", category: "Egg Noodles", name: "M4 Mì tôm viên, cá viên", description: "Shrimp ball, fish ball egg noodle soup", price: 13.95 },
+  { id: "m5", category: "Egg Noodles", name: "M5 Mi gá", description: "Shredded chicken egg noodle soup", price: 13.95 },
+  { id: "m6", category: "Egg Noodles", name: "M6 Mì hoành thánh", description: "Wonton egg noodle soup", price: 13.95 },
+  { id: "m7", category: "Egg Noodles", name: "M7 Mì xá xíu", description: "BBQ pork egg noodle soup", price: 13.95 },
+  { id: "m8", category: "Egg Noodles", name: "Mì xào giòn thập cẩm", description: "Stir-fried combination egg noodles (no soup)", price: 15.95 },
+  { id: "m9", category: "Egg Noodles", name: "M9 Mì xào giòn đồbiển", description: "Seafood fried egg noodles (no soup)", price: 15.95 },
+  { id: "m10", category: "Egg Noodles", name: "M10 Mì xào giòn tôm, xá xíu", description: "Shrimp and BBQ pork fried egg noodles", price: 15.95 },
+  { id: "m11", category: "Egg Noodles", name: "M11 Mì xào giòn tôm", description: "Shrimp fried egg noodles", price: 15.95 },
 
-  // Cơm - Platos de arroz
-  { id: "c1", category: "Arroz", name: "C1 Cơm Sườn", description: "Chuletas de cerdo a la parrilla. Servido con arroz blanco, lechuga, pepino, tomate y sopa.", price: 13.95 },
-  { id: "c2", category: "Arroz", name: "C2 Cơm sườn chả", description: "Chuletas de cerdo a la parrilla y pastel de carne de cerdo", price: 14.95 },
-  { id: "c3", category: "Arroz", name: "C3 Cơm sườn, chả, ốp la", description: "Chuletas de cerdo a la parrilla, pastel de carne de cerdo y huevo frito", price: 15.95 },
-  { id: "c4", category: "Arroz", name: "C4 Cơm Tôm Nướng", description: "Camarones a la parrilla", price: 14.95 },
-  { id: "c5", category: "Arroz", name: "C5 Cơm gà nướng", description: "Pollo a la parrilla", price: 13.95 },
-  { id: "c6", category: "Arroz", name: "C6 Cơm gà nướng, chả", description: "Pollo a la parrilla, pastel de carne", price: 14.95 },
-  { id: "c7", category: "Arroz", name: "C7 Cơm bò nướng", description: "Carne de res a la parrilla", price: 13.95 },
-  { id: "c8", category: "Arroz", name: "C8 Cơm bò nướng, chả", description: "Carne de res a la parrilla, pastel de carne", price: 14.95 },
-  { id: "c9", category: "Arroz", name: "C9 Cơm thịt heo nướng", description: "Cerdo a la parrilla", price: 13.95 },
-  { id: "c10", category: "Arroz", name: "C10 Cơm thịt heo nướng, chả", description: "Cerdo a la parrilla, pastel de carne", price: 14.95 },
-  { id: "c11", category: "Arroz", name: "C11 Cơm sườn, tôm nướng", description: "Chuleta de cerdo a la parrilla, brochetas de camarones", price: 16.95 },
-  { id: "c12", category: "Arroz", name: "C12 Cơm bò lúc lắc", description: "Carne de res salteada y temblorosa", price: 15.95 },
+  // Cơm - Rice platters
+  { id: "c1", category: "Rice Platters", name: "C1 Cơm Sườn", description: "Grilled pork chops. Served with white rice, lettuce, cucumber, tomato, and soup.", price: 13.95 },
+  { id: "c2", category: "Rice Platters", name: "C2 Cơm sườn chả", description: "Grilled pork chops and pork meatloaf", price: 14.95 },
+  { id: "c3", category: "Rice Platters", name: "C3 Cơm sườn, chả, ốp la", description: "Grilled pork chops, pork meatloaf and fried egg", price: 15.95 },
+  { id: "c4", category: "Rice Platters", name: "C4 Cơm Tôm Nướng", description: "Grilled shrimp", price: 14.95 },
+  { id: "c5", category: "Rice Platters", name: "C5 Cơm gà nướng", description: "Grilled chicken", price: 13.95 },
+  { id: "c6", category: "Rice Platters", name: "C6 Cơm gà nướng, chả", description: "Grilled chicken, meatloaf", price: 14.95 },
+  { id: "c7", category: "Rice Platters", name: "C7 Cơm bò nướng", description: "Grilled beef", price: 13.95 },
+  { id: "c8", category: "Rice Platters", name: "C8 Cơm bò nướng, chả", description: "Grilled beef, meatloaf", price: 14.95 },
+  { id: "c9", category: "Rice Platters", name: "C9 Cơm thịt heo nướng", description: "Grilled pork", price: 13.95 },
+  { id: "c10", category: "Rice Platters", name: "C10 Cơm thịt heo nướng, chả", description: "Grilled pork, meatloaf", price: 14.95 },
+  { id: "c11", category: "Rice Platters", name: "C11 Cơm sườn, tôm nướng", description: "Grilled pork chop, shrimp skewers", price: 16.95 },
+  { id: "c12", category: "Rice Platters", name: "C12 Cơm bò lúc lắc", description: "Stir-fried shaking beef", price: 15.95 },
 
-  // Bún - Fideos en ensalada
-  { id: "b1", category: "Bún (Ensalada)", name: "B1 Bún thịt nướng", description: "Cerdo a la parrilla. Servido con fideos, lechuga, brotes de soja, pepino, zanahoria y menta.", price: 13.95 },
-  { id: "b2", category: "Bún (Ensalada)", name: "B2 Bún thịt nướng, chả giò", description: "Cerdo a la parrilla y rollo de huevo crujiente", price: 14.95 },
-  { id: "b3", category: "Bún (Ensalada)", name: "B3 Bún chả giò", description: "Rollitos de huevo crujientes", price: 13.95 },
-  { id: "b4", category: "Bún (Ensalada)", name: "B4 Bún tôm nướng", description: "Brochetas de camarones a la parrilla", price: 14.95 },
-  { id: "b5", category: "Bún (Ensalada)", name: "B5 Bún tôm nướng, chả giò", description: "Brochetas de camarones a la parrilla y rollo de huevo", price: 15.95 },
-  { id: "b6", category: "Bún (Ensalada)", name: "B6 Bún gà nướng", description: "Pollo a la parrilla", price: 13.95 },
-  { id: "b7", category: "Bún (Ensalada)", name: "B7 Bún gà nướng, chả giò", description: "Rollito de pollo y huevo a la parrilla", price: 14.95 },
-  { id: "b8", category: "Bún (Ensalada)", name: "B8 Bún bò nướng", description: "Carne de res a la parrilla", price: 13.95 },
-  { id: "b9", category: "Bún (Ensalada)", name: "B9 Bún bò nướng, chả giò", description: "Rollito de carne a la parrilla y huevo", price: 14.95 },
-  { id: "b10", category: "Bún (Ensalada)", name: "B10 Bún nem nướng", description: "Albóndigas de carne de cerdo a la parrilla", price: 13.95 },
-  { id: "b11", category: "Bún (Ensalada)", name: "B11 Bún nem nướng, chả giò", description: "Albóndigas de carne de cerdo a la parrilla y rollo de huevo", price: 14.95 },
+  // Bún - Salad noodles
+  { id: "b1", category: "Bún (Salad)", name: "B1 Bún thịt nướng", description: "Grilled pork. Served with noodles, lettuce, bean sprouts, cucumber, carrot, and mint.", price: 13.95 },
+  { id: "b2", category: "Bún (Salad)", name: "B2 Bún thịt nướng, chả giò", description: "Grilled pork and crispy egg roll", price: 14.95 },
+  { id: "b3", category: "Bún (Salad)", name: "B3 Bún chả giò", description: "Crispy egg rolls", price: 13.95 },
+  { id: "b4", category: "Bún (Salad)", name: "B4 Bún tôm nướng", description: "Grilled shrimp skewers", price: 14.95 },
+  { id: "b5", category: "Bún (Salad)", name: "B5 Bún tôm nướng, chả giò", description: "Grilled shrimp skewers and egg roll", price: 15.95 },
+  { id: "b6", category: "Bún (Salad)", name: "B6 Bún gà nướng", description: "Grilled chicken", price: 13.95 },
+  { id: "b7", category: "Bún (Salad)", name: "B7 Bún gà nướng, chả giò", description: "Grilled chicken and egg roll", price: 14.95 },
+  { id: "b8", category: "Bún (Salad)", name: "B8 Bún bò nướng", description: "Grilled beef", price: 13.95 },
+  { id: "b9", category: "Bún (Salad)", name: "B9 Bún bò nướng, chả giò", description: "Grilled beef and egg roll", price: 14.95 },
+  { id: "b10", category: "Bún (Salad)", name: "B10 Bún nem nướng", description: "Grilled pork meatballs", price: 13.95 },
+  { id: "b11", category: "Bún (Salad)", name: "B11 Bún nem nướng, chả giò", description: "Grilled pork meatballs and egg roll", price: 14.95 },
 
-  // Cơm Chiên - Arroz frito
-  { id: "cc1", category: "Arroz Frito", name: "CC1 Cơm chiên dương châu", description: "Arroz frito combinado", price: 14.95 },
-  { id: "cc2", category: "Arroz Frito", name: "CC2 Cơm chiên gà", description: "Arroz frito con pollo", price: 13.95 },
-  { id: "cc3", category: "Arroz Frito", name: "CC3 Cơm chiên tôm", description: "Arroz frito con camarones", price: 14.95 },
-  { id: "cc4", category: "Arroz Frito", name: "CC4 Cơm chiên gà cá mặn", description: "Pescado salado con arroz frito con pollo", price: 15.95 },
-  { id: "cc5", category: "Arroz Frito", name: "CC5 Cơm chiên tôm cá mặn", description: "Pescado salado con arroz frito con camarón", price: 15.95 },
-  { id: "cc6", category: "Arroz Frito", name: "CC6 Cơm chiên cá xíu", description: "Arroz frito con cerdo a la barbacoa", price: 13.95 },
-  { id: "cc7", category: "Arroz Frito", name: "CC7 Cơm chiên tôm cari", description: "Arroz frito con camarones (sabor a curry)", price: 14.95 },
-  { id: "cc8", category: "Arroz Frito", name: "CC8 Cơm chiên gà cari", description: "Arroz frito con pollo (sabor a curry)", price: 14.95 },
-  { id: "cc9", category: "Arroz Frito", name: "CC9 Cơm chiên tôm thái lan", description: "Arroz frito con camarones (estilo tailandés)", price: 15.95 },
-  { id: "cc10", category: "Arroz Frito", name: "CC10 Cơm chiên gà thái lan", description: "Arroz frito con pollo (estilo tailandés)", price: 14.95 },
-  { id: "cc11", category: "Arroz Frito", name: "CC11 Cơm chiên bò", description: "Arroz frito con carne", price: 14.95 },
-  { id: "cc12", category: "Arroz Frito", name: "CC12 Cơm gà Asador Chiên", description: "Pollo asado con arroz frito", price: 15.95 },
+  // Cơm Chiên - Fried Rice
+  { id: "cc1", category: "Fried Rice", name: "CC1 Cơm chiên dương châu", description: "Combination fried rice", price: 14.95 },
+  { id: "cc2", category: "Fried Rice", name: "CC2 Cơm chiên gà", description: "Chicken fried rice", price: 13.95 },
+  { id: "cc3", category: "Fried Rice", name: "CC3 Cơm chiên tôm", description: "Shrimp fried rice", price: 14.95 },
+  { id: "cc4", category: "Fried Rice", name: "CC4 Cơm chiên gà cá mặn", description: "Salted fish with chicken fried rice", price: 15.95 },
+  { id: "cc5", category: "Fried Rice", name: "CC5 Cơm chiên tôm cá mặn", description: "Salted fish with shrimp fried rice", price: 15.95 },
+  { id: "cc6", category: "Fried Rice", name: "CC6 Cơm chiên cá xíu", description: "BBQ pork fried rice", price: 13.95 },
+  { id: "cc7", category: "Fried Rice", name: "CC7 Cơm chiên tôm cari", description: "Shrimp fried rice (curry flavor)", price: 14.95 },
+  { id: "cc8", category: "Fried Rice", name: "CC8 Cơm chiên gà cari", description: "Chicken fried rice (curry flavor)", price: 14.95 },
+  { id: "cc9", category: "Fried Rice", name: "CC9 Cơm chiên tôm thái lan", description: "Shrimp fried rice (Thai style)", price: 15.95 },
+  { id: "cc10", category: "Fried Rice", name: "CC10 Cơm chiên gà thái lan", description: "Chicken fried rice (Thai style)", price: 14.95 },
+  { id: "cc11", category: "Fried Rice", name: "CC11 Cơm chiên bò", description: "Beef fried rice", price: 14.95 },
+  { id: "cc12", category: "Fried Rice", name: "CC12 Cơm gà Asador Chiên", description: "Roasted chicken with fried rice", price: 15.95 },
 
   // Chay - Vegetarian
-  { id: "v1", category: "Vegetariano", name: "V1 Gỏi cuốn chay", description: "Rollitos de primavera frescos vegetarianos", price: 6.95 },
-  { id: "v2", category: "Vegetariano", name: "V2 Tàu hủ chiên", description: "Tofu frito", price: 6.95 },
-  { id: "v3", category: "Vegetariano", name: "V3 Súp chay", description: "Sopa vegetariana (caldo de pollo)", price: 6.95 },
-  { id: "v4", category: "Vegetariano", name: "V4 Phở chay", description: "Pho vegetariano (caldo de res o caldo de verduras)", price: "L $14.95 / XL 15.95" },
-  { id: "v5", category: "Vegetariano", name: "V5 Hủ tiếu chay", description: "Sopa vegetariana de fideos de arroz (caldo de pollo)", price: 14.95 },
-  { id: "v6", category: "Vegetariano", name: "V6 Bún chay", description: "Fideos vegetarianos en una ensaladera", price: 15.95 },
-  { id: "v7", category: "Vegetariano", name: "V7 Vamos chay", description: "Plato de arroz vegetariano", price: 13.95 },
-  { id: "v8", category: "Vegetariano", name: "V8 Mì chay", description: "Sopa vegetariana de fideos con huevo (caldo de pollo)", price: 14.95 },
-  { id: "v9", category: "Vegetariano", name: "V9 Cơm chiên chay", description: "Arroz frito vegetariano", price: 13.95 },
-  { id: "v10", category: "Vegetariano", name: "V10 Mì xào giòn chay", description: "Fideos vegetarianos salteados (sin sopa)", price: 15.95 },
+  { id: "v1", category: "Vegetarian", name: "V1 Gỏi cuốn chay", description: "Vegetarian fresh spring rolls", price: 6.95 },
+  { id: "v2", category: "Vegetarian", name: "V2 Tàu hủ chiên", description: "Fried tofu", price: 6.95 },
+  { id: "v3", category: "Vegetarian", name: "V3 Súp chay", description: "Vegetarian soup (chicken broth)", price: 6.95 },
+  { id: "v4", category: "Vegetarian", name: "V4 Phở chay", description: "Vegetarian Pho (beef or veggie broth)", price: "L $14.95 / XL 15.95" },
+  { id: "v5", category: "Vegetarian", name: "V5 Hủ tiếu chay", description: "Vegetarian rice noodle soup (chicken broth)", price: 14.95 },
+  { id: "v6", category: "Vegetarian", name: "V6 Bún chay", description: "Vegetarian noodles in a salad bowl", price: 15.95 },
+  { id: "v7", category: "Vegetarian", name: "V7 Vamos chay", description: "Vegetarian rice platter", price: 13.95 },
+  { id: "v8", category: "Vegetarian", name: "V8 Mì chay", description: "Vegetarian egg noodle soup (chicken broth)", price: 14.95 },
+  { id: "v9", category: "Vegetarian", name: "V9 Cơm chiên chay", description: "Vegetarian fried rice", price: 13.95 },
+  { id: "v10", category: "Vegetarian", name: "V10 Mì xào giòn chay", description: "Vegetarian stir-fried noodles (no soup)", price: 15.95 },
 
-  // Thức uống - Bebidas
-  { id: "n1", category: "Bebidas", name: "N1 Cafe đen đá", description: "Café helado vietnamita", price: 4.95 },
-  { id: "n2", category: "Bebidas", name: "N2 cafe sữa đá", description: "Café helado con leche condensada", price: 4.95 },
-  { id: "n3", category: "Bebidas", name: "N3 Cafe sữa nóng", description: "Café caliente con leche condensada", price: 4.95 },
-  { id: "n4", category: "Bebidas", name: "N4 Nước trái vải", description: "Bebida de lichi (lata)", price: 3.95 },
-  { id: "n5", category: "Bebidas", name: "N5 Nước xoài", description: "Bebida de mango (lata)", price: 3.95 },
-  { id: "n6", category: "Bebidas", name: "N6 Sữa đậu nành", description: "Leche de soja (lata)", price: 3.95 },
-  { id: "n7", category: "Bebidas", name: "N7 Nước đào", description: "Bebida de melocotón (lata)", price: 3.95 },
-  { id: "n8", category: "Bebidas", name: "N8 Nước dừa", description: "Jugo de coco", price: 4.95 },
-  { id: "n9", category: "Bebidas", name: "N9 Trà đá", description: "Té helado", price: 1.50 },
-  { id: "n10", category: "Bebidas", name: "N10 Trà nóng", description: "Té caliente", price: 4.95 },
-  { id: "n11", category: "Bebidas", name: "N11 Té tailandés", description: "Thai Tea refrescante", price: 4.95 },
-  { id: "n12", category: "Bebidas", name: "N12 nước ngọt", description: "Refresco (Pepsi, Sprite, Sunkist)", price: 1.50 },
+  // Thức uống - Drinks
+  { id: "n1", category: "Drinks", name: "N1 Cafe đen đá", description: "Vietnamese iced black coffee", price: 4.95 },
+  { id: "n2", category: "Drinks", name: "N2 cafe sữa đá", description: "Vietnamese iced coffee with condensed milk", price: 4.95 },
+  { id: "n3", category: "Drinks", name: "N3 Cafe sữa nóng", description: "Vietnamese hot coffee with condensed milk", price: 4.95 },
+  { id: "n4", category: "Drinks", name: "N4 Nước trái vải", description: "Lychee drink (can)", price: 3.95 },
+  { id: "n5", category: "Drinks", name: "N5 Nước xoài", description: "Mango drink (can)", price: 3.95 },
+  { id: "n6", category: "Drinks", name: "N6 Sữa đậu nành", description: "Soy milk (can)", price: 3.95 },
+  { id: "n7", category: "Drinks", name: "N7 Nước đào", description: "Peach drink (can)", price: 3.95 },
+  { id: "n8", category: "Drinks", name: "N8 Nước dừa", description: "Coconut juice", price: 4.95 },
+  { id: "n9", category: "Drinks", name: "N9 Trà đá", description: "Iced tea", price: 1.50 },
+  { id: "n10", category: "Drinks", name: "N10 Trà nóng", description: "Hot tea", price: 4.95 },
+  { id: "n11", category: "Drinks", name: "N11 Thai Tea", description: "Refreshing Thai Tea", price: 4.95 },
+  { id: "n12", category: "Drinks", name: "N12 nước ngọt", description: "Soft drink (Pepsi, Sprite, Sunkist)", price: 1.50 },
 
   // Extras
-  { id: "e1", category: "Extras", name: "Tái", description: "Carne cruda", price: 5.00 },
-  { id: "e2", category: "Extras", name: "Nombre", description: "Filete de falda bien cocido", price: 5.00 },
-  { id: "e3", category: "Extras", name: "Gân", description: "Tendón", price: 5.00 },
-  { id: "e4", category: "Extras", name: "Sách", description: "Callos", price: 5.00 },
-  { id: "e5", category: "Extras", name: "Bò Viên", description: "Albóndiga de Res", price: 5.00 },
-  { id: "e6", category: "Extras", name: "Hủ tiếu", description: "Fideos", price: 5.00 },
-  { id: "e7", category: "Extras", name: "Gà nướng", description: "Pollo asado (1)", price: 5.50 },
-  { id: "e8", category: "Extras", name: "Sườn", description: "Chuletas de cerdo a la parrilla (1)", price: 5.50 },
-  { id: "e9", category: "Extras", name: "Bò", description: "Carne a la parrilla (1)", price: 5.50 },
-  { id: "e10", category: "Extras", name: "Thịt nướng", description: "Cerdo asado (1)", price: 5.50 },
-  { id: "e11", category: "Extras", name: "Chả", description: "Pastel de carne de cerdo (1)", price: 2.50 },
-  { id: "e12", category: "Extras", name: "Ốp la", description: "Huevo con el lado soleado hacia arriba (1)", price: 2.50 },
-  { id: "e13", category: "Extras", name: "Nem nướng", description: "Albóndigas de cerdo", price: 3.50 },
-  { id: "e14", category: "Extras", name: "Tôm nướng", description: "Camarones a la parrilla", price: 3.50 },
-  { id: "e15", category: "Extras", name: "Cơm trắng", description: "Arroz blanco al vapor", price: 2.50 },
-  { id: "e16", category: "Extras", name: "Bok Choi", description: "Bok Choi fresco", price: 3.00 },
-  { id: "e17", category: "Extras", name: "Mì", description: "Fideos al huevo", price: 3.00 },
-  { id: "e18", category: "Extras", name: "Verduras", description: "Verduras adicionales", price: 3.50 },
+  { id: "e1", category: "Extras", name: "Tái", description: "Rare beef", price: 5.00 },
+  { id: "e2", category: "Extras", name: "Nạm", description: "Well-done flank", price: 5.00 },
+  { id: "e3", category: "Extras", name: "Gân", description: "Tendon", price: 5.00 },
+  { id: "e4", category: "Extras", name: "Sách", description: "Tripe", price: 5.00 },
+  { id: "e5", category: "Extras", name: "Bò Viên", description: "Beef Meatball", price: 5.00 },
+  { id: "e6", category: "Extras", name: "Hủ tiếu", description: "Rice Noodles", price: 5.00 },
+  { id: "e7", category: "Extras", name: "Gà nướng", description: "Grilled chicken (1)", price: 5.50 },
+  { id: "e8", category: "Extras", name: "Sườn", description: "Grilled pork chops (1)", price: 5.50 },
+  { id: "e9", category: "Extras", name: "Bò", description: "Grilled beef (1)", price: 5.50 },
+  { id: "e10", category: "Extras", name: "Thịt nướng", description: "Grilled pork (1)", price: 5.50 },
+  { id: "e11", category: "Extras", name: "Chả", description: "Pork meatloaf (1)", price: 2.50 },
+  { id: "e12", category: "Extras", name: "Ốp la", description: "Sunny side up egg (1)", price: 2.50 },
+  { id: "e13", category: "Extras", name: "Nem nướng", description: "Pork meatballs", price: 3.50 },
+  { id: "e14", category: "Extras", name: "Tôm nướng", description: "Grilled shrimp", price: 3.50 },
+  { id: "e15", category: "Extras", name: "Cơm trắng", description: "Steamed white rice", price: 2.50 },
+  { id: "e16", category: "Extras", name: "Bok Choi", description: "Fresh Bok Choi", price: 3.00 },
+  { id: "e17", category: "Extras", name: "Mì", description: "Egg noodles", price: 3.00 },
+  { id: "e18", category: "Extras", name: "Vegetables", description: "Extra vegetables", price: 3.50 },
 ];
 
 const CATEGORIES: MenuCategory[] = [
-  "Aperitivos",
-  "Sopa",
+  "Appetizers",
+  "Soup",
   "Pho",
-  "Fideos de Arroz",
-  "Fideos de Huevo",
-  "Arroz",
-  "Bún (Ensalada)",
-  "Arroz Frito",
-  "Vegetariano",
-  "Bebidas",
+  "Rice Noodles",
+  "Egg Noodles",
+  "Rice Platters",
+  "Bún (Salad)",
+  "Fried Rice",
+  "Vegetarian",
+  "Drinks",
   "Extras",
 ];
 
 export default function MenuPage() {
-  const [activeCat, setActiveCat] = useState<MenuCategory>("Aperitivos");
+  const [activeCat, setActiveCat] = useState<MenuCategory>("Appetizers");
   const filteredMenu = useMemo(() => MENU_DATA.filter((m) => m.category === activeCat), [activeCat]);
 
   return (
@@ -186,10 +186,10 @@ export default function MenuPage() {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
           <Link href="/" className="flex items-center gap-2 group">
             <img src="/logo-pho.jpg" alt="Pho Viet Logo" className="h-10 w-10 object-contain rounded-lg bg-white shadow-lg transition-transform group-hover:scale-110" />
-            <span className="font-serif text-xl font-bold">Volver</span>
+            <span className="font-serif text-xl font-bold">Back</span>
           </Link>
           <div className="text-right">
-            <h1 className="font-serif text-2xl font-bold text-primary">Menú Completo</h1>
+            <h1 className="font-serif text-2xl font-bold text-primary">Full Menu</h1>
             <p className="text-xs text-muted-foreground uppercase tracking-widest">Pho Viet Restaurant</p>
           </div>
         </div>
@@ -201,10 +201,10 @@ export default function MenuPage() {
             <Info className="h-8 w-8" />
           </div>
           <div className="text-center md:text-left">
-            <h2 className="text-lg font-bold mb-1">Nota importante</h2>
+            <h2 className="text-lg font-bold mb-1">Important Note</h2>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Por favor, informe a su camarero sobre cualquier alergia alimentaria antes de ordenar.
-              Nuestros platos se preparan con ingredientes frescos diariamente.
+              Please inform your server of any food allergies before ordering.
+              Our dishes are prepared with fresh ingredients daily.
             </p>
           </div>
         </div>
@@ -245,16 +245,16 @@ export default function MenuPage() {
 
         {filteredMenu.length === 0 && (
           <div className="text-center py-20 bg-muted/20 rounded-3xl border-2 border-dashed border-muted">
-            <p className="text-muted-foreground">Esta sección del menú estará disponible pronto.</p>
+            <p className="text-muted-foreground">This menu section will be available soon.</p>
           </div>
         )}
       </main>
 
       <footer className="py-12 px-4 md:px-6 border-t bg-card/30">
           <div className="mx-auto max-w-6xl text-center">
-            <p className="text-xs text-muted-foreground uppercase tracking-[0.2em] font-bold">Pho Viet Restaurant • Sabor Auténtico</p>
-            <p className="mt-4 text-sm text-muted-foreground">Copyright © 2026 Pho Viet Restaurant - Todos los derechos reservados.</p>
-            <p className="mt-2 text-primary font-bold">Gracias por su visita</p>
+            <p className="text-xs text-muted-foreground uppercase tracking-[0.2em] font-bold">Pho Viet Restaurant • Authentic Flavor</p>
+            <p className="mt-4 text-sm text-muted-foreground">Copyright © 2026 Pho Viet Restaurant - All rights reserved.</p>
+            <p className="mt-2 text-primary font-bold">Thank you for visiting</p>
           </div>
       </footer>
 
