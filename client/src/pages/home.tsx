@@ -103,6 +103,94 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="reviews" className="py-20 px-4 md:px-6 bg-background">
+          <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={SECTION_FADE} className="mx-auto max-w-6xl">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 rounded-full border bg-primary/5 px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-bold text-primary mb-4">Testimonios</div>
+              <h2 className="font-serif text-3xl md:text-5xl font-bold">Lo que dicen nuestros clientes</h2>
+              <div className="mt-4 flex justify-center gap-1 text-secondary">
+                {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 fill-current" />)}
+              </div>
+              <p className="mt-4 text-muted-foreground font-medium">98% recomendado (48 reseñas)</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  name: "Stephen Brooks",
+                  date: "Oct 3, 2025",
+                  content: "Very good food and the server shay was very nice and helpful with recommending what to get since it was my first time!",
+                  avatar: "SB"
+                },
+                {
+                  name: "Merick Summers",
+                  date: "Aug 6, 2023",
+                  content: "Absolutely delicious! The dumplings were so good and the broth for our Pho was outstanding! You can tell they take pride in what they do.",
+                  avatar: "MS"
+                },
+                {
+                  name: "Jackie Conley",
+                  date: "Feb 24, 2023",
+                  content: "My family and I are regulars at this point. Our waitress knows what we want every time and she is always on point!! love this place!",
+                  avatar: "JC"
+                },
+                {
+                  name: "Carrie Willison",
+                  date: "Jan 27, 2023",
+                  content: "Wonderful experience here! Food was delicious! Staff and customer service was 10/10!",
+                  avatar: "CW"
+                },
+                {
+                  name: "Pamela Lacey",
+                  date: "Dec 9, 2022",
+                  content: "Very good food and the server shay was very nice and helpful with recommending what to get since it was my first time!",
+                  avatar: "PL"
+                },
+                {
+                  name: "Andrew Stevens",
+                  date: "Aug 9, 2021",
+                  content: "Very good food. We eat here often. Everything has great flavor. The staff is very friendly too.",
+                  avatar: "AS"
+                },
+                {
+                  name: "Amy Lynn Rainey",
+                  date: "Feb 13, 2021",
+                  content: "Pho Viet is the best Vietnamese restaurant in the region. The food is consistently good and quite authentic. I've spent many years looking for a place like this.",
+                  avatar: "AR"
+                },
+                {
+                  name: "Jenna Hoffman",
+                  date: "Nov 28, 2020",
+                  content: "We were blown away with the flavors of each dish. The soups were absolutely amazing. 10/10! We will definitely be back!",
+                  avatar: "JH"
+                },
+                {
+                  name: "Michael Nabua",
+                  date: "Oct 18, 2020",
+                  content: "Amazingly wonderful pho. The broth was rich and tasty. Generous portions of meat, noodles and veggies. Great service and clean atmosphere.",
+                  avatar: "MN"
+                }
+              ].map((review, i) => (
+                <Card key={i} className="p-6 bg-card border shadow-sm rounded-3xl hover:shadow-md transition-shadow">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary text-xs border border-primary/20">
+                      {review.avatar}
+                    </div>
+                    <div>
+                      <div className="font-bold text-sm">{review.name}</div>
+                      <div className="text-[10px] text-muted-foreground uppercase tracking-wider">{review.date}</div>
+                    </div>
+                  </div>
+                  <p className="text-sm leading-relaxed text-muted-foreground italic">"{review.content}"</p>
+                  <div className="mt-4 flex gap-1 text-secondary/60">
+                    {[...Array(5)].map((_, i) => <Star key={i} className="h-3 w-3 fill-current" />)}
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </motion.div>
+        </section>
+
         <section id="gallery" className="py-20 px-4 md:px-6">
           <motion.div ref={gallerySection.ref} initial="hidden" animate={gallerySection.inView ? "show" : "hidden"} variants={SECTION_FADE} className="mx-auto max-w-6xl">
             <h2 className="font-serif text-3xl md:text-5xl font-bold text-center mb-12">Galería de Pho Viet Restaurant</h2>
