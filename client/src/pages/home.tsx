@@ -79,7 +79,10 @@ export default function Home() {
       <header className="sticky top-0 z-40 border-b bg-background/72 backdrop-blur shadow-sm">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
           <Link href="/" className="flex items-center gap-2">
-            <img src="/logo-pho.jpg" alt="Pho Viet Restaurant Logo" className="h-10 w-10 object-contain rounded-lg border bg-white shadow-sm" />
+            <div className="relative">
+              <img src="/logo-pho.jpg" alt="Pho Viet Restaurant Logo" className="h-10 w-10 object-contain rounded-lg border bg-white shadow-sm" />
+              <img src="/favicon-32x32.png" alt="" className="absolute -bottom-1 -right-1 h-4 w-4 rounded-full border border-white shadow-sm" />
+            </div>
             <div className="leading-tight">
               <div className="font-serif text-sm font-bold tracking-tight">Pho Viet Restaurant</div>
             </div>
